@@ -42,63 +42,87 @@
     </header>
 
     <section id="home" class="hero">
-      <div class="hero-content fade-in">
-        <p class="hero-subtitle">Hello, I'm</p>
-        <h1>Lawrence Njobo</h1>
-        <p
-          style="
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            color: var(--text-secondary);
-          "
-        >
-          Computer Science Student | Cybersecurity Enthusiast | Web Developer
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View Work</a>
-          <a href="assets/documents/resume.pdf" class="btn btn-outline" download
-            >Download CV</a
-          >
+        <canvas id="neural-network"></canvas>
+        <div class="hero-content fade-in">
+            <p class="hero-subtitle">Hello, I'm</p>
+            <h1>Lawrence Njobo</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--text-secondary);">
+                <span class="typing-text"></span><span class="cursor">|</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a href="assets/documents/resume.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="about" class="section">
-      <div class="container">
-        <h2>About Me</h2>
-        <div class="about-content fade-in">
-          <div class="about-text">
-            <p>
-              I'm a driven Computer Science student at the National University
-              of Science and Technology (NUST), Zimbabwe. With a passion for
-              coding, cybersecurity, and innovative technology, I am committed
-              to making a significant impact in the tech world.
-            </p>
-            <p>
-              My expertise spans across full-stack web development, where I
-              build dynamic and responsive applications, and cybersecurity,
-              where I focus on vulnerability assessment and threat intelligence.
-            </p>
-            <div class="hero-buttons" style="justify-content: flex-start">
-              <a href="#contact" class="btn btn-primary">Let's Talk</a>
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p>
+                        I'm a driven Computer Science student at the National University of Science and Technology (NUST), Zimbabwe. 
+                        With a passion for coding, cybersecurity, and innovative technology, I am committed to making a significant impact in the tech world.
+                    </p>
+                    <p>
+                        My expertise spans across full-stack web development, where I build dynamic and responsive applications, 
+                        and cybersecurity, where I focus on vulnerability assessment and threat intelligence.
+                    </p>
+                    <div class="hero-buttons" style="justify-content: flex-start;">
+                        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Certifications</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="stats">
-            <div class="stat-item">
-              <h3>3+</h3>
-              <p>Years Coding</p>
-            </div>
-            <div class="stat-item">
-              <h3>10+</h3>
-              <p>Projects</p>
-            </div>
-            <div class="stat-item">
-              <h3>5+</h3>
-              <p>Certifications</p>
-            </div>
-          </div>
         </div>
-      </div>
+    </section>
+
+    <section id="vision" class="section" style="background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+        <div class="container">
+            <h2>My Vision</h2>
+            <div class="vision-content fade-in" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    I believe in a future where <strong>Artificial General Intelligence (AGI)</strong> and <strong>Cloud Computing</strong> converge to solve humanity's most complex challenges.
+                </p>
+                <div class="vision-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;">
+                    <div class="vision-card" style="background: var(--bg-card); padding: 2rem; border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h3 style="color: var(--accent-primary);"><i class="fas fa-brain"></i> AGI</h3>
+                        <p>
+                            Exploring the frontiers of intelligence, from neural networks to cognitive architectures, to build systems that can truly understand and reason.
+                        </p>
+                    </div>
+                    <div class="vision-card" style="background: var(--bg-card); padding: 2rem; border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h3 style="color: var(--accent-secondary);"><i class="fas fa-cloud-upload-alt"></i> Cloud</h3>
+                        <p>
+                            Leveraging scalable infrastructure to deploy AI solutions globally, ensuring reliability, security, and high availability for next-gen applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack-marquee" style="background: var(--bg-primary); padding: 2rem 0; overflow: hidden; white-space: nowrap;">
+        <div class="marquee-content">
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+        </div>
     </section>
 
     <section id="skills" class="section" style="background: var(--bg-secondary);">
@@ -165,8 +189,15 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <span class="timeline-date">Present</span>
-                        <h3>Collaborator</h3>
-                        <h4>Manifold Research</h4>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/manifold-logo.png" alt="Manifold Research Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Collaborator</h3>
+                                <h4>Manifold Research</h4>
+                            </div>
+                        </div>
                         <p>
                             Collaborating on innovative research projects, contributing technical expertise and problem-solving skills to advance research goals.
                         </p>
@@ -175,8 +206,15 @@
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <span class="timeline-date">Sep 2024 - Present</span>
-                        <h3>ICT Intern</h3>
-                        <h4>The Institute of Chartered Accountants of Zimbabwe (ICAZ)</h4>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/ICAZ Logo NO BG-02.png" alt="ICAZ Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>ICT Intern</h3>
+                                <h4>The Institute of Chartered Accountants of Zimbabwe (ICAZ)</h4>
+                            </div>
+                        </div>
                         <p>
                             Engineered an end-to-end Procurement System on Microsoft Power Platform. 
                             Spearheaded the deployment of a Freshdesk helpdesk system. 
@@ -187,8 +225,15 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <span class="timeline-date">Jun 2024 - Aug 2024</span>
-                        <h3>AI Risk Landscape Market Research Extern</h3>
-                        <h4>Extern</h4>
+                        <div class="company-header">
+                            <div class="logo-wrapper" style="background: white;">
+                                <img src="assets/images/65cbe658681665405e277f6d_extern_primary_black.svg" alt="Extern Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>AI Risk Landscape Market Research Extern</h3>
+                                <h4>Extern</h4>
+                            </div>
+                        </div>
                         <p>
                             Executed thorough secondary research to identify and analyze prevalent AI risks. 
                             Formulated in-depth case studies and delivered strategic insights for mitigating AI risks.
@@ -198,8 +243,15 @@
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <span class="timeline-date">Apr 2024 - May 2024</span>
-                        <h3>Cyber Security Analyst</h3>
-                        <h4>Center for Cyber Security Studies & Research</h4>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/Center-for-Cyber-Security-Studies-Research-1-120x120.png" alt="CCSSR Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Cyber Security Analyst</h3>
+                                <h4>Center for Cyber Security Studies & Research</h4>
+                            </div>
+                        </div>
                         <p>
                             Conducted comprehensive security assessments identifying vulnerabilities. 
                             Analyzed recent cyber-attacks and developed mitigation strategies.
@@ -209,8 +261,15 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <span class="timeline-date">Mar 2024</span>
-                        <h3>Web Development Intern</h3>
-                        <h4>InternCareer</h4>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/intern-career.png" alt="InternCareer Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Web Development Intern</h3>
+                                <h4>InternCareer</h4>
+                            </div>
+                        </div>
                         <p>
                             Led the design and development of a personal portfolio website and blogging platform. 
                             Gained proficiency in deploying websites using GitHub Pages, Netlify, and Vercel.
@@ -243,6 +302,9 @@
                         </p>
                         <div class="project-links">
                             <a href="https://github.com/AlbertNjobo/zimbabwean-market-mcp" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            <button class="project-link btn-modal" data-modal="modal-mcp" style="background: none; border: none; cursor: pointer; color: var(--accent-primary); font-size: 0.9rem; margin-left: 1rem;">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -473,6 +535,41 @@
         <p>&copy; 2025 Lawrence Njobo. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- Modals -->
+    <div id="modal-mcp" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Zimbabwe Grocery Market MCP Server</h2>
+            <div class="modal-body">
+                <p><strong>A production-ready Model Context Protocol (MCP) server that enables LLMs to search and compare grocery prices across Zimbabwe's major supermarket chains in real-time.</strong></p>
+                
+                <h3><i class="fas fa-star"></i> Key Features</h3>
+                <ul>
+                    <li><strong>Multi-Retailer Support:</strong> Scrapes data from Pick n Pay, OK Zimbabwe, and Food World.</li>
+                    <li><strong>Real-time Price Comparison:</strong> Aggregates and normalizes pricing data for accurate comparisons.</li>
+                    <li><strong>MCP Tools:</strong> Exposes tools like <code>search_products</code> and <code>compare_prices</code> to LLMs (Claude, etc.).</li>
+                    <li><strong>Robust Architecture:</strong> Built with FastMCP, BeautifulSoup4, and Pydantic for type safety.</li>
+                </ul>
+
+                <h3><i class="fas fa-cogs"></i> Technical Stack</h3>
+                <div class="skill-tags" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <span class="skill-tag">Python 3.10+</span>
+                    <span class="skill-tag">FastMCP</span>
+                    <span class="skill-tag">BeautifulSoup4</span>
+                    <span class="skill-tag">Asyncio</span>
+                    <span class="skill-tag">Pydantic</span>
+                </div>
+
+                <h3><i class="fas fa-code-branch"></i> Architecture</h3>
+                <p>The system follows a modular design with separate scrapers for each retailer, a normalization layer for data consistency, and an MCP server layer that handles requests from LLM clients.</p>
+                
+                <div class="project-links" style="margin-top: 2rem;">
+                    <a href="https://github.com/AlbertNjobo/zimbabwean-market-mcp" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
