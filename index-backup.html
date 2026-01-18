@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lawrence Njobo | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Lawrence Njobo - Computer Science Student, Cybersecurity Expert, and Web Developer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">LN.</a>
+          <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+        <canvas id="neural-network"></canvas>
+        <div class="hero-content fade-in">
+            <p class="hero-subtitle">Hello, I'm</p>
+            <h1>Lawrence Njobo</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--text-secondary);">
+                <span class="typing-text"></span><span class="cursor">|</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a href="assets/documents/resume.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p>
+                        I'm a driven Computer Science student at the National University of Science and Technology (NUST), Zimbabwe. 
+                        With a passion for coding, cybersecurity, and innovative technology, I am committed to making a significant impact in the tech world.
+                    </p>
+                    <p>
+                        My expertise spans across full-stack web development, where I build dynamic and responsive applications, 
+                        and cybersecurity, where I focus on vulnerability assessment and threat intelligence.
+                    </p>
+                    <div class="hero-buttons" style="justify-content: flex-start;">
+                        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Certifications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="section" style="background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+        <div class="container">
+            <h2>My Vision</h2>
+            <div class="vision-content fade-in" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    I believe in a future where <strong>Artificial General Intelligence (AGI)</strong> and <strong>Cloud Computing</strong> converge to solve humanity's most complex challenges.
+                </p>
+                <div class="vision-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;">
+                    <div class="vision-card" style="background: var(--bg-card); padding: 2rem; border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h3 style="color: var(--accent-primary);"><i class="fas fa-brain"></i> AGI</h3>
+                        <p>
+                            Exploring the frontiers of intelligence, from neural networks to cognitive architectures, to build systems that can truly understand and reason.
+                        </p>
+                    </div>
+                    <div class="vision-card" style="background: var(--bg-card); padding: 2rem; border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h3 style="color: var(--accent-secondary);"><i class="fas fa-cloud-upload-alt"></i> Cloud</h3>
+                        <p>
+                            Leveraging scalable infrastructure to deploy AI solutions globally, ensuring reliability, security, and high availability for next-gen applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-stack-marquee" style="background: var(--bg-primary); padding: 2rem 0; overflow: hidden; white-space: nowrap;">
+        <div class="marquee-content">
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+            <i class="fab fa-python"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-react"></i> <i class="fab fa-node"></i> <i class="fab fa-docker"></i> <i class="fab fa-aws"></i> <i class="fab fa-git-alt"></i> <i class="fas fa-database"></i> <i class="fab fa-linux"></i>
+        </div>
+    </section>
+
+    <section id="skills" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Concepts</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">MVC</span>
+                        <span class="skill-tag">OOP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Sophos Security</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">DevOps</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">SDLC</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline fade-in">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Present</span>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/manifold-logo.png" alt="Manifold Research Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Collaborator</h3>
+                                <h4>Manifold Research</h4>
+                            </div>
+                        </div>
+                        <p>
+                            Collaborating on innovative research projects, contributing technical expertise and problem-solving skills to advance research goals.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2024 - Present</span>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/ICAZ Logo NO BG-02.png" alt="ICAZ Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>ICT Intern</h3>
+                                <h4>The Institute of Chartered Accountants of Zimbabwe (ICAZ)</h4>
+                            </div>
+                        </div>
+                        <p>
+                            Engineered an end-to-end Procurement System on Microsoft Power Platform. 
+                            Spearheaded the deployment of a Freshdesk helpdesk system. 
+                            Led the Server Infrastructure Upgrade Project and administered core systems.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jun 2024 - Aug 2024</span>
+                        <div class="company-header">
+                            <div class="logo-wrapper" style="background: white;">
+                                <img src="assets/images/65cbe658681665405e277f6d_extern_primary_black.svg" alt="Extern Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>AI Risk Landscape Market Research Extern</h3>
+                                <h4>Extern</h4>
+                            </div>
+                        </div>
+                        <p>
+                            Executed thorough secondary research to identify and analyze prevalent AI risks. 
+                            Formulated in-depth case studies and delivered strategic insights for mitigating AI risks.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Apr 2024 - May 2024</span>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/Center-for-Cyber-Security-Studies-Research-1-120x120.png" alt="CCSSR Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Cyber Security Analyst</h3>
+                                <h4>Center for Cyber Security Studies & Research</h4>
+                            </div>
+                        </div>
+                        <p>
+                            Conducted comprehensive security assessments identifying vulnerabilities. 
+                            Analyzed recent cyber-attacks and developed mitigation strategies.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mar 2024</span>
+                        <div class="company-header">
+                            <div class="logo-wrapper">
+                                <img src="assets/images/intern-career.png" alt="InternCareer Logo" class="experience-logo">
+                            </div>
+                            <div>
+                                <h3>Web Development Intern</h3>
+                                <h4>InternCareer</h4>
+                            </div>
+                        </div>
+                        <p>
+                            Led the design and development of a personal portfolio website and blogging platform. 
+                            Gained proficiency in deploying websites using GitHub Pages, Netlify, and Vercel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section
+      id="projects"
+      class="section"
+      style="background: var(--bg-secondary)"
+    >
+      <div class="container">
+        <h2>Featured Projects</h2>
+            <div class="projects-grid fade-in">
+                <!-- Project 1: Zimbabwe Grocery Market MCP -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Zimbabwe Grocery Market MCP</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">MCP</span>
+                            <span class="project-tag">Web Scraping</span>
+                        </div>
+                        <p>
+                            A production-ready Model Context Protocol (MCP) server that enables LLMs to search and compare grocery prices across Zimbabwe's major supermarket chains in real-time.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/AlbertNjobo/zimbabwean-market-mcp" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            <button class="project-link btn-modal" data-modal="modal-mcp" style="background: none; border: none; cursor: pointer; color: var(--accent-primary); font-size: 0.9rem; margin-left: 1rem;">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SkillSync -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>SkillSync Job Portal</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">Platform</span>
+                        </div>
+                        <p>
+                            A web-based platform connecting university graduates with job opportunities, bridging the gap between education and employment.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/AlbertNjobo/SkillSync-Job-Portal" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Online Job Portal (Group 6) -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Online Job Portal</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">MVC</span>
+                            <span class="project-tag">Full Stack</span>
+                        </div>
+                        <p>
+                            An MVC-based Online Job Portal system designed to streamline the recruitment process for both employers and job seekers.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Sisae/online-job-portal-group-6" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: ALX Library Management System -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Library Management System</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">System</span>
+                        </div>
+                        <p>
+                            A comprehensive library management system built for ICAZ, featuring book tracking, user management, and borrowing workflows.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/AlbertNjobo/Alx-Library-Management-System" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Polly API -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Polly API</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">API</span>
+                            <span class="project-tag">OpenAPI</span>
+                        </div>
+                        <p>
+                            A robust backend API for managing polls and voting, featuring comprehensive documentation and efficient data handling.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/AlbertNjobo/Polly-API" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Savannah GuestHouse -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Savannah GuestHouse</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Web Dev</span>
+                            <span class="project-tag">Booking System</span>
+                        </div>
+                        <p>
+                            A user-friendly platform for booking hotel rooms and managing reservations, streamlining the guest experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 7: Blog-App -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Blog-App</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Prisma</span>
+                        </div>
+                        <p>
+                            A full-featured blogging platform with CRUD functionalities, built with modern web technologies for optimal performance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 8: Blockchain Blood Supply -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Blockchain Blood Supply</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">Blockchain</span>
+                        </div>
+                        <p>
+                            Research on a blockchain-based blood supply system to enhance transparency and efficiency in medical logistics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certificates-grid fade-in">
+                <div class="certificate-card">
+                    <img src="assets/images/google-cloud-gen-ai-leader.png" alt="Google Cloud Certified Generative AI Leader" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Generative AI Leader</h3>
+                        <p>Google Cloud</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <img src="assets/images/113-alx-ai-starter-kit-certificate-lawrence-njobo.png" alt="ALX AI Starter Kit" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>AI Starter Kit</h3>
+                        <p>ALX Africa</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <img src="assets/images/52-professional-foundations-certificate-lawrence-njobo.png" alt="Professional Foundations" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Professional Foundations</h3>
+                        <p>ALX Africa</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <img src="assets/images/70-back-end-web-development-certificate-lawrence-njobo.png" alt="Back-End Web Development" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Back-End Web Development</h3>
+                        <p>ALX Africa</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <img src="assets/images/certificate-hedera.png" alt="Hedera Certificate" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Hedera Certificate</h3>
+                        <p>Hedera</p>
+                    </div>
+                </div>
+                <!-- Missing Certificates (No Image) -->
+                <div class="certificate-card">
+                    <div class="certificate-img" style="display: flex; align-items: center; justify-content: center; background: #2a2a2a;">
+                        <i class="fas fa-certificate" style="font-size: 4rem; color: var(--accent-primary);"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>ISC2 Certified in Cybersecurity</h3>
+                        <p>ISC2</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" style="display: flex; align-items: center; justify-content: center; background: #2a2a2a;">
+                        <i class="fas fa-shield-alt" style="font-size: 4rem; color: var(--accent-primary);"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Threat Intelligence Analyst</h3>
+                        <p>arcX</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" style="display: flex; align-items: center; justify-content: center; background: #2a2a2a;">
+                        <i class="fas fa-user-shield" style="font-size: 4rem; color: var(--accent-primary);"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>ISC2 Candidate</h3>
+                        <p>ISC2</p>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="section"
+      style="background: var(--bg-secondary)"
+    >
+      <div class="container contact-container">
+        <h2>Get In Touch</h2>
+        <p>
+          I'm currently open to new opportunities and collaborations. Feel free
+          to reach out!
+        </p>
+        <div class="contact-links fade-in">
+          <a href="mailto:lawrencenjobo9@gmail.com" class="contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <span>Email Me</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lawrencenjobo"
+            target="_blank"
+            class="contact-item"
+          >
+            <i class="fab fa-linkedin contact-icon"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="tel:+263715444928" class="contact-item">
+            <i class="fas fa-phone contact-icon"></i>
+            <span>Call Me</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Lawrence Njobo. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-mcp" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Zimbabwe Grocery Market MCP Server</h2>
+            <div class="modal-body">
+                <p><strong>A production-ready Model Context Protocol (MCP) server that enables LLMs to search and compare grocery prices across Zimbabwe's major supermarket chains in real-time.</strong></p>
+                
+                <h3><i class="fas fa-star"></i> Key Features</h3>
+                <ul>
+                    <li><strong>Multi-Retailer Support:</strong> Scrapes data from Pick n Pay, OK Zimbabwe, and Food World.</li>
+                    <li><strong>Real-time Price Comparison:</strong> Aggregates and normalizes pricing data for accurate comparisons.</li>
+                    <li><strong>MCP Tools:</strong> Exposes tools like <code>search_products</code> and <code>compare_prices</code> to LLMs (Claude, etc.).</li>
+                    <li><strong>Robust Architecture:</strong> Built with FastMCP, BeautifulSoup4, and Pydantic for type safety.</li>
+                </ul>
+
+                <h3><i class="fas fa-cogs"></i> Technical Stack</h3>
+                <div class="skill-tags" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+                    <span class="skill-tag">Python 3.10+</span>
+                    <span class="skill-tag">FastMCP</span>
+                    <span class="skill-tag">BeautifulSoup4</span>
+                    <span class="skill-tag">Asyncio</span>
+                    <span class="skill-tag">Pydantic</span>
+                </div>
+
+                <h3><i class="fas fa-code-branch"></i> Architecture</h3>
+                <p>The system follows a modular design with separate scrapers for each retailer, a normalization layer for data consistency, and an MCP server layer that handles requests from LLM clients.</p>
+                
+                <div class="project-links" style="margin-top: 2rem;">
+                    <a href="https://github.com/AlbertNjobo/zimbabwean-market-mcp" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
