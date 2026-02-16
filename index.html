@@ -1,1258 +1,389 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lawrence Njobo | Software Engineer</title>
+    <title>Lawrence Njobo</title>
     <meta
       name="description"
-      content="Lawrence Njobo - Software Engineer specialized in building accessible, high-performance web applications with expertise in full-stack development and cybersecurity."
+      content="Lawrence Njobo — Software engineer and researcher. Building AI systems, security tools, and open-source software."
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-            colors: {
-              zinc: {
-                850: "#1f1f22",
-                950: "#09090b",
-              },
-            },
-            letterSpacing: {
-              tighter: "-0.04em",
-              tight: "-0.02em",
-            },
-            animation: {
-              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-        body {
-            /* Prevent scroll during intro */
-            overflow: hidden; 
-        }
-        /* Dark theme scrollbar */
-        .dark ::-webkit-scrollbar {
-            width: 6px;
-        }
-        .dark ::-webkit-scrollbar-track {
-            background: #09090b;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 3px;
-        }
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: #3f3f46;
-        }
-        /* Light theme scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f4f4f5;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d4d4d8;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a1a1aa;
-        }
-        .bg-grain {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-        }
-        .intro-text {
-            will-change: opacity, transform, filter;
-        }
-
-        /* Liquid Glass Card Effect */
-        .liquid-glass {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 
-                0 4px 6px -1px rgba(0, 0, 0, 0.05), 
-                0 2px 4px -1px rgba(0, 0, 0, 0.03),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .dark .liquid-glass {
-            background: rgba(9, 9, 11, 0.3); /* Zinc-950 with opacity */
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 
-                0 4px 30px rgba(0, 0, 0, 0.2), 
-                inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Subtle inner border */
-        }
-
-        /* Glass Sheen Gradient */
-        .liquid-glass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(
-                to right,
-                transparent,
-                rgba(255, 255, 255, 0.3) 10%,
-                transparent
-            );
-            transform: skewX(-25deg);
-            transition: 0.5s;
-            pointer-events: none;
-        }
-        
-        .dark .liquid-glass::before {
-             background: linear-gradient(
-                to right,
-                transparent,
-                rgba(255, 255, 255, 0.05) 10%,
-                transparent
-            );
-        }
-
-        .liquid-glass:hover::before {
-            left: 150%;
-            transition: 0.7s;
-        }
-
-        /* Animated Blobs */
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob {
-            animation: blob 10s infinite;
-        }
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-    </style>
   </head>
-<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans antialiased selection:bg-indigo-200 dark:selection:bg-zinc-700 selection:text-zinc-900 dark:selection:text-white relative transition-colors duration-300" id="main-body">
-    <!-- Keynote Intro Container -->
-    <div
-      id="keynote-container"
-      class="fixed inset-0 z-[100] bg-black flex items-center justify-center pointer-events-none"
-    >
-      <!-- Text Sequence Elements -->
-      <div class="intro-sequence relative w-full text-center">
-        <h1
-          class="intro-text absolute left-0 right-0 top-1/2 -translate-y-1/2 text-5xl md:text-8xl font-semibold tracking-tighter text-white opacity-0 blur-lg"
-        >
-          Hello.
-        </h1>
-        <h1
-          class="intro-text absolute left-0 right-0 top-1/2 -translate-y-1/2 text-5xl md:text-8xl font-semibold tracking-tighter text-white opacity-0 blur-lg"
-        >
-          I'm Lawrence.
-        </h1>
-        <h1
-          class="intro-text absolute left-0 right-0 top-1/2 -translate-y-1/2 text-5xl md:text-8xl font-semibold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 opacity-0 blur-lg"
-        >
-          Software Engineer.
-        </h1>
-      </div>
-    </div>
+  <body class="intro-active">
 
-    <!-- Background Effects -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <!-- Static Gradients (Fallback/Overlay) -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 dark:from-indigo-900/10 via-white/0 dark:via-zinc-950/0 to-transparent"></div>
-      
-      <!-- Animated Blobs -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] opacity-40 dark:opacity-20 mix-blend-multiply dark:mix-blend-screen filter blur-[80px] animate-blob">
-          <div class="absolute top-0 right-0 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>
-          <div class="absolute top-0 -left-4 w-72 h-72 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    <!-- Intro Sequence -->
+    <div id="intro" class="intro">
+      <div class="intro__content">
+        <div class="intro__line" data-text="Hello."></div>
+        <div class="intro__line" data-text="I'm Lawrence."></div>
+        <div class="intro__line intro__line--accent" data-text="Engineer. Researcher. Builder."></div>
       </div>
-
-      <div class="absolute inset-0 bg-grain opacity-20"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-zinc-200 dark:border-white/5 bg-white/50 dark:bg-zinc-950/50 transform -translate-y-full transition-colors duration-300" id="navbar">
-        <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="#" class="text-sm tracking-widest font-medium uppercase text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
-                LN
-            </a>
-            <div class="flex items-center gap-6">
-                <div class="hidden sm:flex gap-6 text-xs font-medium text-zinc-600 dark:text-zinc-400">
-                    <a href="#about" class="hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
-                    <a href="#work" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Work</a>
-                    <a href="#projects" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
-                    <a href="#contact" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
-                </div>
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors" aria-label="Toggle theme">
-                    <span class="iconify block dark:hidden" data-icon="lucide:moon" data-width="16"></span>
-                    <span class="iconify hidden dark:block" data-icon="lucide:sun" data-width="16"></span>
-                </button>
-            </div>
+    <nav class="nav" id="navbar">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">Lawrence Njobo</a>
+        <div class="nav__links">
+          <a href="#work" class="nav__link">Work</a>
+          <a href="#writing" class="nav__link">Writing</a>
+          <a href="#about" class="nav__link">About</a>
         </div>
+      </div>
     </nav>
 
-    <main
-      class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20 opacity-0"
-      id="main-content"
-    >
-      <!-- Hero Section -->
-      <header class="mb-24 relative">
-        <!-- Decorative Shattered Object -->
-        <div
-          class="absolute -right-10 top-0 w-48 h-48 opacity-20 hidden md:block"
-          id="hero-shards"
-        >
-          <div
-            class="shard absolute w-12 h-12 bg-zinc-700 top-0 left-0 border border-zinc-600 rounded-sm"
-          ></div>
-          <div
-            class="shard absolute w-8 h-8 bg-zinc-600 top-4 left-14 border border-zinc-500 rounded-sm"
-          ></div>
-          <div
-            class="shard absolute w-16 h-16 bg-zinc-800 top-10 left-6 border border-zinc-700 rounded-sm"
-          ></div>
-          <div
-            class="shard absolute w-6 h-6 bg-zinc-500 top-20 left-20 border border-zinc-400 rounded-sm"
-          ></div>
-          <div
-            class="shard absolute w-10 h-10 bg-zinc-700 top-8 right-0 border border-zinc-600 rounded-sm"
-          ></div>
-        </div>
-
-        <div class="hero-content opacity-0 translate-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors cursor-default">
-            <span class="relative flex h-2 w-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
-              ></span>
-            </span>
-            Available for new opportunities
-          </div>
-
-          <h1
-            class="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-500 dark:from-white dark:via-white dark:to-zinc-500 mb-6 leading-[1.1]"
-          >
-            <span class="block overflow-hidden"
-              ><span class="reveal-text inline-block"
-                >Crafting digital experiences</span
-              ></span
-            >
-            <span class="block overflow-hidden"
-              ><span class="reveal-text inline-block"
-                >with precision and purpose.</span
-              ></span
-            >
-          </h1>
-
-          <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-xl font-light leading-relaxed reveal-fade">
-            I'm <span class="text-zinc-900 dark:text-zinc-100 font-medium">Lawrence Njobo</span>, a
-            Software Engineer specialized in building accessible,
-            high-performance web applications. I turn complex problems into
-            simple, elegant solutions.
-          </p>
-
-          <div class="flex gap-4 mt-8 reveal-fade">
-            <a
-            <a href="#contact" class="group flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 px-5 py-2.5 rounded-md text-sm font-medium hover:bg-zinc-800 dark:hover:bg-white transition-all">
-            >
-              Get in touch
-              <span
-                class="iconify group-hover:translate-x-0.5 transition-transform"
-                data-icon="lucide:arrow-right"
-                data-width="16"
-              ></span>
-            </a>
-            <a
-              href="https://github.com/AlbertNjobo"
-              target="_blank"
-              class="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:github"
-                data-width="16"
-              ></span>
-              GitHub
-            </a>
-            <a
-              href="assets/documents/resume.pdf"
-              target="_blank"
-              class="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:file-text"
-                data-width="16"
-              ></span>
-              Resume
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <!-- Bento Grid: About & Stack -->
-      <section
-        id="about"
-        class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24 stagger-section opacity-0 translate-y-8"
-      >
-        <!-- About Card -->
-        <!-- About Card -->
-        <div class="md:col-span-2 p-6 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 group">
-          <div class="flex items-center gap-2 text-zinc-500 mb-4">
-            <span
-              class="iconify"
-              data-icon="lucide:user"
-              data-width="16"
-            ></span>
-            <span class="text-xs uppercase tracking-wider font-medium"
-              >About Me</span
-            >
-          </div>
-          <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm">
-            Computer Science student at NUST, Zimbabwe, with a passion for
-            full-stack development and cybersecurity. I bridge the gap between
-            design and engineering, focusing on scalability, clean code, and
-            user-centric design principles. My approach is iterative and
-            data-driven, ensuring every pixel serves a purpose.
-          </p>
-        </div>
-
-        <!-- Location Card -->
-        <!-- Location Card -->
-        <div class="p-6 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 flex flex-col justify-between h-full relative overflow-hidden group">
-          <div
-            class="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          ></div>
-          <div class="flex items-center gap-2 text-zinc-500 mb-4 z-10">
-            <span
-              class="iconify"
-              data-icon="lucide:map-pin"
-              data-width="16"
-            ></span>
-            <span class="text-xs uppercase tracking-wider font-medium"
-              >Location</span
-            >
-          </div>
-          <div class="z-10">
-            <h3 class="text-xl font-medium text-zinc-900 dark:text-zinc-100">Zimbabwe</h3>
-            <p class="text-xs text-zinc-500 mt-1">Remote Capable</p>
-          </div>
-        </div>
-
-        <!-- Tech Stack Card -->
-        <!-- Tech Stack Card -->
-        <div class="p-6 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 flex flex-col h-full md:row-span-2">
-          <div class="flex items-center gap-2 text-zinc-500 mb-6">
-            <span
-              class="iconify"
-              data-icon="lucide:layers"
-              data-width="16"
-            ></span>
-            <span class="text-xs uppercase tracking-wider font-medium"
-              >Stack</span
-            >
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:code-2"
-                data-width="14"
-              ></span>
-              React
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:file-json"
-                data-width="14"
-              ></span>
-              TypeScript
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:wind"
-                data-width="14"
-              ></span>
-              Tailwind
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:server"
-                data-width="14"
-              ></span>
-              Node.js
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:database"
-                data-width="14"
-              ></span>
-              PostgreSQL
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:box"
-                data-width="14"
-              ></span>
-              Next.js
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:shield"
-                data-width="14"
-              ></span>
-              Python
-            </div>
-            <div
-              class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/50 text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              <span
-                class="iconify"
-                data-icon="lucide:cloud"
-                data-width="14"
-              ></span>
-              Azure
-            </div>
-          </div>
-        </div>
-
-        <!-- Connect Card -->
-        <!-- Connect Card -->
-        <div class="md:col-span-2 p-6 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 flex items-center justify-between group">
-          <div>
-            <h3 class="text-zinc-900 dark:text-zinc-100 font-medium mb-1">Let's work together</h3>
-            <p class="text-xs text-zinc-500">
-              Open for freelance and full-time roles.
-            </p>
-          </div>
-          <a href="mailto:lawrencenjobo9@gmail.com" class="h-10 w-10 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 group-hover:text-white dark:group-hover:text-zinc-950 transition-all">
-            <span
-              class="iconify"
-              data-icon="lucide:arrow-up-right"
-              data-width="20"
-            ></span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="work" class="mb-24 stagger-section opacity-0 translate-y-8">
-        <h2
-          class="text-lg font-medium tracking-tight mb-8 flex items-center gap-2"
-        >
-          <span
-            class="iconify text-zinc-500"
-            data-icon="lucide:briefcase"
-            data-width="18"
-          ></span>
-          Experience
-        </h2>
-        <div class="border-l border-zinc-200 dark:border-zinc-800 ml-3 space-y-12">
-          <!-- Role 1: ICAZ -->
-          <div class="relative pl-8 group">
-            <div
-              class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 group-hover:border-zinc-500 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors"
-            ></div>
-            <div
-              class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2"
-            >
-              <h3 class="text-zinc-900 dark:text-zinc-100 font-medium">ICT Intern</h3>
-              <span class="text-xs font-mono text-zinc-500"
-                >Sep 2024 — Present</span
-              >
-            </div>
-            <div class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">
-              The Institute of Chartered Accountants of Zimbabwe (ICAZ)
-            </div>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-              Engineered an end-to-end Procurement System on Microsoft Power
-              Platform. Spearheaded Freshdesk helpdesk deployment and led Server
-              Infrastructure Upgrade Project.
-            </p>
-          </div>
-
-          <!-- Role 2: Manifold -->
-          <div class="relative pl-8 group">
-            <div
-              class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-zinc-700 bg-zinc-950 group-hover:border-zinc-500 group-hover:bg-zinc-800 transition-colors"
-            ></div>
-            <div
-              class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2"
-            >
-              <h3 class="text-zinc-100 font-medium">Collaborator</h3>
-              <span class="text-xs font-mono text-zinc-500">Present</span>
-            </div>
-            <div class="text-sm text-zinc-400 mb-3">Manifold Research</div>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-              Collaborating on innovative research projects, contributing
-              technical expertise and problem-solving skills to advance research
-              goals.
-            </p>
-          </div>
-
-          <!-- Role 3: Extern -->
-          <div class="relative pl-8 group">
-            <div
-              class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-zinc-700 bg-zinc-950 group-hover:border-zinc-500 group-hover:bg-zinc-800 transition-colors"
-            ></div>
-            <div
-              class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2"
-            >
-              <h3 class="text-zinc-100 font-medium">
-                AI Risk Landscape Market Research Extern
-              </h3>
-              <span class="text-xs font-mono text-zinc-500"
-                >Jun 2024 — Aug 2024</span
-              >
-            </div>
-            <div class="text-sm text-zinc-400 mb-3">Extern</div>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-              Executed thorough secondary research to identify and analyze
-              prevalent AI risks. Formulated in-depth case studies and delivered
-              strategic insights for mitigating AI risks.
-            </p>
-          </div>
-
-          <!-- Role 4: CCSSR -->
-          <div class="relative pl-8 group">
-            <div
-              class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 group-hover:border-zinc-500 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors"
-            ></div>
-            <div
-              class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2"
-            >
-              <h3 class="text-zinc-900 dark:text-zinc-100 font-medium">
-                Cyber Security Analyst
-              </h3>
-              <span class="text-xs font-mono text-zinc-500"
-                >Apr 2024 — May 2024</span
-              >
-            </div>
-            <div class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">
-              Center for Cyber Security Studies & Research
-            </div>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-              Conducted comprehensive security assessments identifying
-              vulnerabilities. Analyzed recent cyber-attacks and developed
-              mitigation strategies.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="showcase"
-        class="mb-24 stagger-section opacity-0 translate-y-8"
-      >
-         <h2
-          class="text-lg font-medium tracking-tight mb-8 flex items-center gap-2"
-        >
-          <span
-            class="iconify text-zinc-500"
-            data-icon="lucide:play-circle"
-            data-width="18"
-          ></span>
-          Featured Demos
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- LithiTrust Demo -->
-            <div class="rounded-xl liquid-glass overflow-hidden">
-                <div class="aspect-video w-full">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        src="https://www.youtube.com/embed/feNROUVj2U4" 
-                        title="LithiTrust Demo" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        class="w-full h-full"
-                    >
-                    </iframe>
-                </div>
-                <div class="p-4 border-t border-zinc-100 dark:border-zinc-900">
-                    <h3 class="font-medium text-zinc-900 dark:text-zinc-100 text-sm mb-1">LithiTrust Platform</h3>
-                    <p class="text-xs text-zinc-500">Transparent Supply Chain & ESG Rewards</p>
-                </div>
-            </div>
-
-            <!-- ZSL Vibe Demo -->
-             <div class="rounded-xl liquid-glass overflow-hidden">
-                <div class="aspect-video w-full">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        src="https://www.youtube.com/embed/iq0ZR264NiA" 
-                        title="ZSL Vibe Interpreter Demo" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        class="w-full h-full"
-                    >
-                    </iframe>
-                </div>
-                <div class="p-4 border-t border-zinc-100 dark:border-zinc-900">
-                    <h3 class="font-medium text-zinc-900 dark:text-zinc-100 text-sm mb-1">ZSL Vibe Interpreter</h3>
-                    <p class="text-xs text-zinc-500">Real-time Sign Language AI Tutor</p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section
-        id="projects"
-        class="mb-24 stagger-section opacity-0 translate-y-8"
-      >
-        <h2
-          class="text-lg font-medium tracking-tight mb-8 flex items-center gap-2"
-        >
-          <span
-            class="iconify text-zinc-500"
-            data-icon="lucide:folder-open"
-            data-width="18"
-          ></span>
-          Selected Projects
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="https://github.com/AlbertNjobo/zimbabwean-market-mcp" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:shopping-cart" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">Zimbabwe Grocery Market MCP</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Production-ready MCP server enabling LLMs to search and compare grocery prices across Zimbabwe's major supermarket chains in real-time.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Python</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">MCP</span>
-            </div>
-          </div>
-        </a>
-
-          <a href="https://github.com/AlbertNjobo/SkillSync-Job-Portal" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:briefcase" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">SkillSync Job Portal</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Web-based platform connecting university graduates with job opportunities, bridging the gap between education and employment.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Django</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Platform</span>
-            </div>
-          </div>
-        </a>
-
-          <a href="https://github.com/AlbertNjobo/Alx-Library-Management-System" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:book-open" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">Library Management System</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Comprehensive library management system built for ICAZ, featuring book tracking, user management, and borrowing workflows.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Django</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">System</span>
-            </div>
-          </div>
-        </a>
-
-          <a href="https://github.com/AlbertNjobo/Polly-API" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:bar-chart-2" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">Polly API</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Robust backend API for managing polls and voting, featuring comprehensive documentation and efficient data handling.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Python</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">API</span>
-            </div>
-          </div>
-        </a>
-
-          <!-- Project: LithiTrust -->
-          <a href="https://youtu.be/feNROUVj2U4" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:gem" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">LithiTrust</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Supply chain transparency platform ensuring fair rewards for miners using Polygon and Gemini AI for sustainability plans.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Web3</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Gemini AI</span>
-            </div>
-          </div>
-        </a>
-
-          <!-- Project: ZSL Vibe Interpreter -->
-          <a href="https://devpost.com/software/zsl-vibe-interpreter-ai-tutor" target="_blank" class="group block p-1 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300">
-          <div class="relative rounded-lg p-6 h-full transition-colors overflow-hidden">
-            <div class="flex justify-between items-start mb-6">
-              <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-zinc-100">
-                <span class="iconify" data-icon="lucide:video" data-width="20"></span>
-              </div>
-              <span class="iconify text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" data-icon="lucide:arrow-up-right" data-width="20"></span>
-            </div>
-            <h3 class="text-base font-medium text-zinc-900 dark:text-zinc-100 mb-2">ZSL Vibe Interpreter</h3>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 mb-4">
-              Real-time Zimbabwe Sign Language tutor and interpreter using multimodal AI to bridge communication gaps.
-            </p>
-            <div class="flex gap-2">
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Multimodal AI</span>
-              <span class="text-[10px] uppercase font-medium tracking-wider text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">Education</span>
-            </div>
-          </div>
-        </a>
-        </div>
-      </section>
-
-      <!-- Certificates Section -->
-      <section
-        id="certificates"
-        class="mb-24 stagger-section opacity-0 translate-y-8"
-      >
-        <h2
-          class="text-lg font-medium tracking-tight mb-8 flex items-center gap-2"
-        >
-          <span
-            class="iconify text-zinc-500"
-            data-icon="lucide:award"
-            data-width="18"
-          ></span>
-          Certifications
-        </h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <!-- Hedera -->
-            <a href="https://certs.hashgraphdev.com/1c59b23c-7000-4ad7-b59b-595dae414b73.pdf" target="_blank" class="block p-4 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 group">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="simple-icons:hedera" data-width="16"></span>
-                </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Hashgraph Developer</h3>
-                        <p class="text-xs text-zinc-500">Nov 2025</p>
-                    </div>
-                     <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-            
-            <!-- Google Cloud -->
-             <a href="https://www.credly.com/badges/62ab223f-7272-48f8-bcff-62126a26b7b5/linked_in_profile" target="_blank" class="block p-4 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 group">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="simple-icons:googlecloud" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Generative AI Leader</h3>
-                        <p class="text-xs text-zinc-500">Oct 2025</p>
-                    </div>
-                    <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-
-            <!-- ISC2 Cyber Security -->
-             <a href="https://isc2.obrizum.io/org/cc/certificate/3dfd0e11-e116-4adc-bd72-77f69ee2f859" target="_blank" class="block p-4 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 group">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="lucide:shield-check" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Certified in Cybersecurity</h3>
-                        <p class="text-xs text-zinc-500">Jun 2024</p>
-                    </div>
-                    <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-
-            <!-- ALX AI Starter -->
-             <a href="https://savanna.alxafrica.com/certificates/reZc2fG357" target="_blank" class="block p-4 rounded-xl liquid-glass hover:bg-white/50 dark:hover:bg-zinc-900/50 transition-all duration-300 group">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400 mb-3">
-                    <span class="iconify" data-icon="lucide:cpu" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">AI Starter Kit</h3>
-                        <p class="text-xs text-zinc-500">Apr 2025</p>
-                    </div>
-                    <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-
-            <!-- ALX Backend -->
-             <a href="https://savanna.alxafrica.com/certificates/cpF3MszxhJ" target="_blank" class="block p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/20 hover:bg-white/80 dark:hover:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-white/10 transition-all duration-300 group backdrop-blur-sm">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="lucide:server" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Back-End Web Dev</h3>
-                        <p class="text-xs text-zinc-500">Apr 2025</p>
-                    </div>
-                    <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-
-             <!-- ArcX Threat Intel -->
-             <a href="https://arcx.io/verify-certificate?id=943e80fe7cf60d9ba026948c9b719c5d34b0858c&k=904ee0b45f82452cbd99716a321bce88" target="_blank" class="block p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/20 hover:bg-white/80 dark:hover:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-white/10 transition-all duration-300 group backdrop-blur-sm">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="lucide:search" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Threat Intel Analyst</h3>
-                        <p class="text-xs text-zinc-500">Jun 2024</p>
-                    </div>
-                     <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-
-            <!-- Professional Foundations -->
-             <a href="https://intranet.alxswe.com/certificates/HnY6F2ZT8M" target="_blank" class="block p-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-zinc-900/20 hover:bg-white/80 dark:hover:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-white/10 transition-all duration-300 group backdrop-blur-sm">
-                <div class="h-8 w-8 rounded bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center mb-3 text-zinc-600 dark:text-zinc-400">
-                    <span class="iconify" data-icon="lucide:briefcase" data-width="16"></span>
-                </div>
-                 <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1">Pro Foundations</h3>
-                        <p class="text-xs text-zinc-500">Sep 2024</p>
-                    </div>
-                     <span class="iconify text-zinc-300 dark:text-zinc-700 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors" data-icon="lucide:external-link" data-width="14"></span>
-                </div>
-            </a>
-        </div>
-      </section>
-
-      <!-- Get in Touch -->
-      <section
-        id="contact"
-        class="mb-24 stagger-section opacity-0 translate-y-8"
-      >
-        <h2
-          class="text-lg font-medium tracking-tight mb-8 flex items-center gap-2"
-        >
-          <span
-            class="iconify text-zinc-500"
-            data-icon="lucide:message-square"
-            data-width="18"
-          ></span>
-          Get in Touch
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Contact Info -->
-            <div>
-                <p class="text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out directly.
-                </p>
-                
-                <div class="space-y-6">
-                    <a href="mailto:theayloe@gmail.com" class="flex items-center gap-4 group">
-                        <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
-                             <span class="iconify" data-icon="lucide:mail" data-width="20"></span>
-                        </div>
-                        <div>
-                            <p class="text-xs text-zinc-500 mb-0.5">Email me</p>
-                            <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100">theayloe@gmail.com</p>
-                        </div>
-                    </a>
-
-                    <div class="flex items-center gap-4">
-                        <div class="h-10 w-10 rounded-lg bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-zinc-500">
-                             <span class="iconify" data-icon="lucide:map-pin" data-width="20"></span>
-                        </div>
-                        <div>
-                            <p class="text-xs text-zinc-500 mb-0.5">Location</p>
-                            <p class="text-sm font-medium text-zinc-900 dark:text-zinc-100">Zimbabwe</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <form id="contact-form" class="space-y-4">
-                <div>
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Name" required
-                        class="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors">
-                </div>
-                <div>
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email" required
-                        class="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors">
-                </div>
-                <div>
-                    <label for="message" class="sr-only">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Message" required
-                        class="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors resize-none"></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium py-3 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2">
-                    Send Message
-                    <span class="iconify" data-icon="lucide:send" data-width="16"></span>
-                </button>
-            </form>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer
-        class="border-t border-zinc-200 dark:border-white/5 pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 stagger-section opacity-0 translate-y-8"
-      >
-        <div>
-          <h4 class="text-zinc-900 dark:text-zinc-100 font-medium mb-1">Lawrence Njobo</h4>
-          <p class="text-xs text-zinc-500">
-            Building software with precision.
-          </p>
-        </div>
-
-        <div class="flex gap-6">
+    <main class="container">
+      <!-- Hero -->
+      <section class="hero fade-in">
+        <h1 class="hero__greeting">
+          Hi, I'm @lawrence.<span class="hero__cursor"></span>
+        </h1>
+        <p class="hero__bio">
+          Software engineer and AI researcher from Zimbabwe. I build things at
+          the intersection of AI safety, web infrastructure, and developer
+          tools. Currently collaborating with
+          <a href="https://www.manifoldrg.com/" target="_blank"
+            >Manifold Research</a
+          >.
+        </p>
+        <div class="hero__socials">
           <a
             href="https://github.com/AlbertNjobo"
             target="_blank"
-            class="text-zinc-500 hover:text-zinc-300 transition-colors"
+            class="hero__social-link"
+            aria-label="GitHub"
           >
-            <span class="sr-only">GitHub</span>
-            <span
-              class="iconify"
-              data-icon="lucide:github"
-              data-width="20"
-            ></span>
+            <span class="iconify" data-icon="mdi:github" data-width="20"></span>
           </a>
           <a
             href="https://www.linkedin.com/in/lawrencenjobo"
             target="_blank"
-            class="text-zinc-500 hover:text-zinc-300 transition-colors"
+            class="hero__social-link"
+            aria-label="LinkedIn"
           >
-            <span class="sr-only">LinkedIn</span>
             <span
               class="iconify"
-              data-icon="lucide:linkedin"
+              data-icon="mdi:linkedin"
               data-width="20"
             ></span>
           </a>
           <a
-            href="mailto:lawrencenjobo9@gmail.com"
-            class="text-zinc-500 hover:text-zinc-300 transition-colors"
+            href="https://medium.com/@lawrencenjobo"
+            target="_blank"
+            class="hero__social-link"
+            aria-label="Medium"
           >
-            <span class="sr-only">Email</span>
             <span
               class="iconify"
-              data-icon="lucide:mail"
+              data-icon="simple-icons:medium"
+              data-width="20"
+            ></span>
+          </a>
+          <a
+            href="https://x.com/lawrencenjobo"
+            target="_blank"
+            class="hero__social-link"
+            aria-label="X / Twitter"
+          >
+            <span
+              class="iconify"
+              data-icon="ri:twitter-x-fill"
+              data-width="18"
+            ></span>
+          </a>
+          <a
+            href="https://rxresu.me/albertnjobo/lawrence-njobo-resume"
+            target="_blank"
+            class="hero__social-link"
+            aria-label="Resume"
+          >
+            <span
+              class="iconify"
+              data-icon="mdi:file-document-outline"
+              data-width="20"
+            ></span>
+          </a>
+          <a
+            href="mailto:theayloe@gmail.com"
+            class="hero__social-link"
+            aria-label="Email"
+          >
+            <span
+              class="iconify"
+              data-icon="mdi:email-outline"
               data-width="20"
             ></span>
           </a>
         </div>
+      </section>
+
+      <!-- Featured Work -->
+      <section id="work" class="section fade-in">
+        <h2 class="section__title">Featured Work</h2>
+
+        <!-- Project: LithiTrust -->
+        <div class="project">
+          <div class="project__header">
+            <h3 class="project__title">
+              <a href="https://youtu.be/feNROUVj2U4" target="_blank"
+                >LithiTrust</a
+              >
+            </h3>
+            <span class="project__arrow">↗</span>
+          </div>
+          <p class="project__desc">
+            Supply chain transparency platform ensuring fair ESG rewards for
+            lithium miners. Built with Polygon smart contracts and Gemini AI for
+            real-time sustainability plan generation.
+          </p>
+          <div class="project__tags">
+            <span class="project__tag">Web3</span>
+            <span class="project__tag">Polygon</span>
+            <span class="project__tag">Gemini AI</span>
+            <span class="project__tag">React</span>
+          </div>
+          <div class="project__video">
+            <iframe
+              src="https://www.youtube.com/embed/feNROUVj2U4"
+              title="LithiTrust Demo"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Project: ZSL Vibe Interpreter -->
+        <div class="project">
+          <div class="project__header">
+            <h3 class="project__title">
+              <a
+                href="https://devpost.com/software/zsl-vibe-interpreter-ai-tutor"
+                target="_blank"
+                >ZSL Vibe Interpreter</a
+              >
+            </h3>
+            <span class="project__arrow">↗</span>
+          </div>
+          <p class="project__desc">
+            Real-time Zimbabwe Sign Language AI tutor and interpreter. Uses
+            multimodal AI to bridge communication gaps for the deaf and
+            hard-of-hearing community.
+          </p>
+          <div class="project__tags">
+            <span class="project__tag">Multimodal AI</span>
+            <span class="project__tag">Computer Vision</span>
+            <span class="project__tag">Education</span>
+          </div>
+          <div class="project__video">
+            <iframe
+              src="https://www.youtube.com/embed/iq0ZR264NiA"
+              title="ZSL Vibe Interpreter Demo"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Project: Zimbabwe Grocery Market MCP -->
+        <div class="project">
+          <div class="project__header">
+            <h3 class="project__title">
+              <a
+                href="https://github.com/AlbertNjobo/zimbabwean-market-mcp"
+                target="_blank"
+                >Zimbabwe Grocery Market MCP</a
+              >
+            </h3>
+            <span class="project__arrow">↗</span>
+          </div>
+          <p class="project__desc">
+            Production-ready MCP server enabling LLMs to search and compare
+            grocery prices across Zimbabwe's major supermarket chains in
+            real-time. Open-source tool infrastructure.
+          </p>
+          <div class="project__tags">
+            <span class="project__tag">Python</span>
+            <span class="project__tag">MCP</span>
+            <span class="project__tag">LLM Tooling</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Writing -->
+      <section id="writing" class="section fade-in">
+        <h2 class="section__title">Writing</h2>
+        <div id="blog-posts" class="stagger">
+          <!-- Posts loaded dynamically via JS, fallback below -->
+        </div>
+        <noscript>
+          <a
+            href="https://medium.com/@lawrencenjobo"
+            target="_blank"
+            class="post"
+          >
+            <div class="post__title">Read my articles on Medium →</div>
+          </a>
+        </noscript>
+        <a
+          href="https://medium.com/@lawrencenjobo"
+          target="_blank"
+          class="view-all"
+        >
+          View all on Medium <span>→</span>
+        </a>
+      </section>
+
+      <!-- About & Experience -->
+      <section id="about" class="section fade-in">
+        <h2 class="section__title">About</h2>
+
+        <p class="about__text">
+          I'm a <strong>Computer Science student at NUST, Zimbabwe</strong>,
+          working at the intersection of AI, cybersecurity, and web engineering.
+          I believe in building tools that are useful, open, and well-crafted.
+          When I'm not coding, I'm researching AI risk landscapes, contributing
+          to open-source, or writing about technology.
+        </p>
+
+        <h2 class="section__title" style="margin-top: 40px">Experience</h2>
+
+        <!-- Experience: Manifold -->
+        <div class="exp">
+          <div class="exp__header">
+            <span class="exp__role">Collaborator</span>
+            <span class="exp__date">Present</span>
+          </div>
+          <div class="exp__company">Manifold Research</div>
+          <p class="exp__desc">
+            Contributing to research on AI systems evaluation, multimodal
+            models, and frontier AI safety.
+          </p>
+        </div>
+
+        <!-- Experience: ICAZ -->
+        <div class="exp">
+          <div class="exp__header">
+            <span class="exp__role">ICT Intern</span>
+            <span class="exp__date">Sep 2024 — Present</span>
+          </div>
+          <div class="exp__company">
+            Institute of Chartered Accountants of Zimbabwe
+          </div>
+          <p class="exp__desc">
+            Engineered an end-to-end Procurement System on Microsoft Power
+            Platform. Led Freshdesk helpdesk deployment and server
+            infrastructure upgrades.
+          </p>
+        </div>
+
+        <!-- Experience: AI Risk Extern -->
+        <div class="exp">
+          <div class="exp__header">
+            <span class="exp__role">AI Risk Research Extern</span>
+            <span class="exp__date">Jun — Aug 2024</span>
+          </div>
+          <div class="exp__company">Extern</div>
+          <p class="exp__desc">
+            Executed secondary research on AI risks, formulated case studies,
+            and delivered strategic mitigation insights.
+          </p>
+        </div>
+
+        <!-- Experience: Cyber Security -->
+        <div class="exp">
+          <div class="exp__header">
+            <span class="exp__role">Cyber Security Analyst</span>
+            <span class="exp__date">Apr — May 2024</span>
+          </div>
+          <div class="exp__company">
+            Center for Cyber Security Studies & Research
+          </div>
+          <p class="exp__desc">
+            Conducted security assessments, analyzed cyber-attacks, and
+            developed mitigation strategies.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__inner">
+          <span class="footer__copy">© 2025 Lawrence Njobo</span>
+          <div class="footer__links">
+            <a
+              href="https://github.com/AlbertNjobo"
+              target="_blank"
+              class="footer__link"
+              aria-label="GitHub"
+            >
+              <span
+                class="iconify"
+                data-icon="mdi:github"
+                data-width="18"
+              ></span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/lawrencenjobo"
+              target="_blank"
+              class="footer__link"
+              aria-label="LinkedIn"
+            >
+              <span
+                class="iconify"
+                data-icon="mdi:linkedin"
+                data-width="18"
+              ></span>
+            </a>
+            <a
+              href="https://medium.com/@lawrencenjobo"
+              target="_blank"
+              class="footer__link"
+              aria-label="Medium"
+            >
+              <span
+                class="iconify"
+                data-icon="simple-icons:medium"
+                data-width="18"
+              ></span>
+            </a>
+            <a
+              href="mailto:theayloe@gmail.com"
+              class="footer__link"
+              aria-label="Email"
+            >
+              <span
+                class="iconify"
+                data-icon="mdi:email-outline"
+                data-width="18"
+              ></span>
+            </a>
+          </div>
+        </div>
       </footer>
-      <div
-        class="text-center mt-12 text-[10px] text-zinc-700 uppercase tracking-widest stagger-section opacity-0"
-      >
-        © 2025 Lawrence Njobo
-      </div>
     </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        
-        // Check local storage or default to dark
-        if (localStorage.theme === 'light') {
-            html.classList.remove('dark');
-        } else {
-            html.classList.add('dark');
-        }
-
-        themeToggle.addEventListener('click', () => {
-             html.classList.toggle('dark');
-             if (html.classList.contains('dark')) {
-                 localStorage.theme = 'dark';
-             } else {
-                 localStorage.theme = 'light';
-             }
-        });
-
-        const introTexts = document.querySelectorAll(".intro-text");
-        const introContainer = document.getElementById("keynote-container");
-
-        // Create a Master Timeline
-        let tl = anime.timeline({
-          easing: "easeOutExpo",
-        });
-
-        // 1. Intro Sequence: "Hello."
-        tl.add({
-          targets: introTexts[0],
-          opacity: [0, 1],
-          filter: ["blur(15px)", "blur(0px)"],
-          translateY: ["-45%", "-50%"], // Subtle float up
-          duration: 1200,
-        })
-          .add({
-            targets: introTexts[0],
-            opacity: [1, 0],
-            filter: ["blur(0px)", "blur(20px)"],
-            scale: 1.1,
-            duration: 800,
-            delay: 400,
-          })
-          // 2. Intro Sequence: "I'm Lawrence."
-          .add(
-            {
-              targets: introTexts[1],
-              opacity: [0, 1],
-              filter: ["blur(15px)", "blur(0px)"],
-              scale: [0.9, 1],
-              duration: 1200,
-            },
-            "-=200",
-          )
-          .add({
-            targets: introTexts[1],
-            opacity: [1, 0],
-            filter: ["blur(0px)", "blur(20px)"],
-            scale: 1.1,
-            duration: 800,
-            delay: 500,
-          })
-          // 3. Intro Sequence: "Software Engineer."
-          .add(
-            {
-              targets: introTexts[2],
-              opacity: [0, 1],
-              filter: ["blur(15px)", "blur(0px)"],
-              scale: [0.95, 1],
-              duration: 1400,
-            },
-            "-=200",
-          )
-          .add({
-            targets: introTexts[2],
-            opacity: [1, 0],
-            filter: ["blur(0px)", "blur(20px)"],
-            scale: 1.1,
-            duration: 800,
-            delay: 800,
-          })
-          // 4. Reveal Transition: Slide Intro Up
-          .add(
-            {
-              targets: introContainer,
-              translateY: "-100%",
-              duration: 1000,
-              easing: "easeInOutQuart",
-              complete: function () {
-                document.body.style.overflow = "auto"; // Re-enable scrolling
-              },
-            },
-            "-=200",
-          )
-          // 5. Landing Page Animations (Start slightly before intro finishes)
-          .add(
-            {
-              targets: "#main-content",
-              opacity: [0, 1],
-              duration: 800,
-              easing: "linear",
-            },
-            "-=800",
-          )
-          // Navbar
-          .add(
-            {
-              targets: "#navbar",
-              translateY: ["-100%", "0%"],
-              opacity: [0, 1],
-              duration: 800,
-            },
-            "-=600",
-          )
-          // Hero
-          .add(
-            {
-              targets: ".hero-content",
-              opacity: [0, 1],
-              translateY: [30, 0],
-              duration: 1000,
-            },
-            "-=600",
-          )
-          .add(
-            {
-              targets: ".reveal-text",
-              translateY: ["100%", "0%"],
-              easing: "easeOutExpo",
-              duration: 1000,
-              delay: anime.stagger(100),
-              complete: function () {
-                document.querySelectorAll(".reveal-text").forEach((el) => {
-                  if (el.parentElement) {
-                    el.parentElement.style.overflow = "visible";
-                  }
-                });
-              },
-            },
-            "-=800",
-          )
-          .add(
-            {
-              targets: ".reveal-fade",
-              opacity: [0, 1],
-              translateY: [20, 0],
-              duration: 800,
-              delay: anime.stagger(100),
-            },
-            "-=800",
-          )
-          // Shards
-          .add(
-            {
-              targets: ".shard",
-              translateX: function () {
-                return anime.random(-50, 50);
-              },
-              translateY: function () {
-                return anime.random(-50, 50);
-              },
-              scale: function () {
-                return anime.random(0.8, 1.2);
-              },
-              rotate: function () {
-                return anime.random(-45, 45);
-              },
-              opacity: [0, 1],
-              delay: anime.stagger(50),
-              duration: 2000,
-            },
-            "-=1000",
-          )
-          // Sections
-          .add(
-            {
-              targets: ".stagger-section",
-              opacity: [0, 1],
-              translateY: [20, 0],
-              delay: anime.stagger(100),
-              duration: 800,
-              complete: function () {
-                // Cleanup float animation
-                anime({
-                  targets: ".shard",
-                  translateX: function () {
-                    return anime.random(-20, 20);
-                  },
-                  translateY: function () {
-                    return anime.random(-20, 20);
-                  },
-                  rotate: function () {
-                    return anime.random(-10, 10);
-                  },
-                  duration: 3000,
-                  direction: "alternate",
-                  loop: true,
-                  easing: "easeInOutSine",
-                });
-              },
-            },
-            "-=600",
-          );
-        // Contact Form Handler
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                const subject = `Portfolio Contact from ${name}`;
-                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
-                
-                window.location.href = `mailto:theayloe@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-            });
-        }
-      });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
