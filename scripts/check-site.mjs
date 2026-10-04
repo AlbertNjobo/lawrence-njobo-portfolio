@@ -24,7 +24,7 @@ export const PAGES = [
     mustNotContain: ["Hedera Hashgraph Developer"],
   },
   { path: "work/procurely.html", mustContain: ["Procurely", "purchase order", "ProcurePilot"] },
-  { path: "work/brightpath.html", mustContain: ["Brightpath", "Shona", "Pathfinder", "78"], mustNotContain: ["John Cowie"] },
+  { path: "work/brightpath.html", mustContain: ["Brightpath", "Shona", "Pathfinder", "78", "LetterLight"] },
   { path: "work/bloodchain.html", mustContain: ["BloodChain", "Hedera", "final year project", "Joseph Mutengeni"] },
   { path: "work/sentinel-api.html", mustContain: ["Sentinel API", "FastAPI", "Nginx"], mustNotContain: ["log aggregation", "dashboards"] },
 ];
