@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brightpath · Lawrence Njobo</title>
+  <meta name="description" content="Brightpath, bilingual Shona and English learning games for neurodivergent children, with teacher and parent dashboards.">
+  <meta property="og:title" content="Brightpath · Lawrence Njobo">
+  <meta property="og:description" content="Brightpath, bilingual Shona and English learning games for neurodivergent children, with teacher and parent dashboards.">
+  <meta name="theme-color" content="#f5f5f3">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preload" href="/assets/fonts/satoshi-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/satoshi-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){var d=document.documentElement;d.classList.add("js");try{if(localStorage.getItem("theme")==="dark")d.setAttribute("data-theme","dark")}catch(e){}})()</script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="/"><span aria-hidden="true">&#x2731;</span>Lawrence Njobo</a>
+    <div class="nav__end">
+    <nav class="nav__links" aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#writing">Writing</a>
+      <a href="/credentials.html">Credentials</a>
+      <a href="/#about">About</a>
+    </nav>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><!-- Phosphor Icons, MIT --><svg class="icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></svg><svg class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <p class="eyebrow">Case study, 2026</p>
+    <h1>Brightpath</h1>
+    <p class="lead">Bilingual Shona and English learning games for children who learn differently, built for cheap Android phones and patchy connections.</p>
+  </section>
+  <figure class="case-media reveal">
+    <img src="/assets/images/work/brightpath.webp" alt="Brightpath home page: Every child learns their own way, with a Start playing button." width="1280" height="800">
+    <figcaption>The live demo home page.</figcaption>
+  </figure>
+  <dl class="facts">
+    <div><dt>Role</dt><dd>Design and build</dd></div>
+    <div><dt>Stack</dt><dd>Next.js 16, React 19, Supabase, Service worker, ElevenLabs, Meta MMS, Android TWA</dd></div>
+    <div><dt>Status</dt><dd>In active development</dd></div>
+    <div><dt>Links</dt><dd><a href="https://brightpath-coral.vercel.app" target="_blank" rel="noopener">Live demo ↗</a></dd></div>
+  </dl>
+  <article class="prose reveal">
+    <h2>The problem</h2>
+    <p>Most learning apps assume a child who reads English fluently, a fast connection and a new phone. Many children in Zimbabwe have none of those, and children who learn differently are the first to be left behind when an app moves at its own pace instead of theirs.</p>
+    <h2>What I built</h2>
+    <p>Brightpath is a set of maths and reading games in Shona and English. Every question is read aloud, with the other language one tap away. Teachers and parents get their own dashboards.</p>
+    <ul>
+      <li><strong>Pathfinder</strong>, the adaptive engine, keeps a mastery rating for each skill and picks the level where a child succeeds most of the time without it being too easy. It is plain, unit-tested logic with no AI calls.</li>
+      <li>A <strong>hint ladder</strong>: a wrong answer is diagnosed (for example, adding instead of subtracting), and the child stays on the same question with a nudge, then worked steps, then a guided walkthrough.</li>
+      <li>The server regenerates each question from its seed and grades it, so results cannot be faked from the phone.</li>
+      <li>Offline first: games are cached on the phone, and answers given offline queue and sync when the connection returns.</li>
+      <li>An opt-in Shona pronunciation check that scores a recording in memory and never stores it.</li>
+      <li>Teacher tools: learning plans with measurable goals, assigned practice, and a short check-in that is clearly labelled as not a diagnosis.</li>
+    </ul>
+    <h2>What happened</h2>
+    <p>Brightpath is live as a web demo and as an Android app that opens it full screen. The Shona voice lines were generated with an open speech model and still need review by a native speaker, which is the next step before any real classroom use.</p>
+  </article>
+  <div class="numbers case-number"><div><div class="number__fig">78<span class="number__unit">%</span></div><p class="number__cap">The success rate Pathfinder aims for when it picks a child's next question.</p></div></div>
+  <nav class="pager" aria-label="More work">
+    <a href="/work/procurely.html"><span>← Previous</span>Procurely</a>
+    <a href="/work/bloodchain.html"><span>Next →</span>BloodChain</a>
+  </nav>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer__sign">If something here is useful to you, I'd like to hear from you.</p>
+    <div class="footer__row">
+      <a class="btn" href="mailto:lawrencenjobo9@gmail.com">Get in touch</a>
+      <ul class="footer__links">
+        <li><a href="https://www.linkedin.com/in/lawrence-njobo" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/AlbertNjobo" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://medium.com/@lawrencenjobo" target="_blank" rel="noopener">Medium</a></li>
+        <li><a href="https://x.com/Lawrence_Njobo" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://rxresu.me/albertnjobo/lawrence-njobo-resume" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </div>
+    <p class="footer__copy">© 2026 Lawrence Njobo. Figures by <a href="https://hairline.lucasmarkes.com" target="_blank" rel="noopener">Hairline</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

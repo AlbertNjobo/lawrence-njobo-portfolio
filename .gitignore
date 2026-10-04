@@ -2,3 +2,6 @@
 .impeccable.md
 node_modules
 .env
+.playwright-mcp/
+docs/
+scripts/forbidden-links.txt

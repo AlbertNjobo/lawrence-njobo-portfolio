@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BloodChain · Lawrence Njobo</title>
+  <meta name="description" content="BloodChain, a blockchain-based blood supply management system for Zimbabwe. Final year project, NUST, 2026.">
+  <meta property="og:title" content="BloodChain · Lawrence Njobo">
+  <meta property="og:description" content="BloodChain, a blockchain-based blood supply management system for Zimbabwe. Final year project, NUST, 2026.">
+  <meta name="theme-color" content="#f5f5f3">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preload" href="/assets/fonts/satoshi-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/satoshi-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){var d=document.documentElement;d.classList.add("js");try{if(localStorage.getItem("theme")==="dark")d.setAttribute("data-theme","dark")}catch(e){}})()</script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="/"><span aria-hidden="true">&#x2731;</span>Lawrence Njobo</a>
+    <div class="nav__end">
+    <nav class="nav__links" aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#writing">Writing</a>
+      <a href="/credentials.html">Credentials</a>
+      <a href="/#about">About</a>
+    </nav>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><!-- Phosphor Icons, MIT --><svg class="icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></svg><svg class="icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <p class="eyebrow">Case study, 2026</p>
+    <h1>BloodChain</h1>
+    <p class="lead">A blood supply traceability system for Zimbabwe that keeps personal data private and the audit trail public.</p>
+  </section>
+  <figure class="case-media reveal">
+    <img src="/assets/images/work/bloodchain.webp" alt="BloodChain blood bank portal showing blood inventory by group." width="1024" height="507">
+    <figcaption>The blood bank portal, from the project user manual.</figcaption>
+  </figure>
+  <dl class="facts">
+    <div><dt>Role</dt><dd>Final year project, NUST</dd></div>
+    <div><dt>Stack</dt><dd>React, TypeScript, Express, Supabase, Hedera Token Service, FastAPI</dd></div>
+    <div><dt>Status</dt><dd>Submitted 2026, marked 81, first class</dd></div>
+    <div><dt>Links</dt><dd>Code private, available on request</dd></div>
+  </dl>
+  <article class="prose reveal">
+    <h2>The problem</h2>
+    <p>When a unit of blood moves from donor to lab to hospital to patient, every hand-off is a chance to lose track of it. A shared ledger can make that history trustworthy, but blood records are medical records, and putting personal data on a public chain would break Zimbabwe's Data Protection Act.</p>
+    <h2>What I built</h2>
+    <p>BloodChain uses two ledgers. All personal data lives off-chain in Supabase PostgreSQL behind row level security. On-chain, each blood bag is a token on the Hedera Token Service that carries only a cryptographic hash, so the audit trail is public while the people in it stay private.</p>
+    <ul>
+      <li>Role-based workflows for blood banks, labs, hospitals and donors.</li>
+      <li>An Express API gateway that salts patient identifiers and manages keys.</li>
+      <li>Expiry tracking, QR codes for anonymous donor profiles and token-based donor incentives.</li>
+      <li>Twelve dated SQL migrations, including one that locks a sensitive table to the backend service only.</li>
+    </ul>
+    <h2>What happened</h2>
+    <p>This was my final year project at the National University of Science and Technology, supervised by Joseph Mutengeni, and it was marked 81, a first. It also produced an IEEE-format research paper co-authored with my supervisor. Transactions confirmed in about three seconds on average, at well under a cent each.</p>
+  </article>
+  <div class="numbers case-number"><div><div class="number__fig">3.2<span class="number__unit">s</span></div><p class="number__cap">Average transaction confirmation time on Hedera.</p></div></div>
+  <nav class="pager" aria-label="More work">
+    <a href="/work/brightpath.html"><span>← Previous</span>Brightpath</a>
+    <a href="/work/sentinel-api.html"><span>Next →</span>Sentinel API</a>
+  </nav>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer__sign">If something here is useful to you, I'd like to hear from you.</p>
+    <div class="footer__row">
+      <a class="btn" href="mailto:lawrencenjobo9@gmail.com">Get in touch</a>
+      <ul class="footer__links">
+        <li><a href="https://www.linkedin.com/in/lawrence-njobo" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/AlbertNjobo" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://medium.com/@lawrencenjobo" target="_blank" rel="noopener">Medium</a></li>
+        <li><a href="https://x.com/Lawrence_Njobo" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://rxresu.me/albertnjobo/lawrence-njobo-resume" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </div>
+    <p class="footer__copy">© 2026 Lawrence Njobo. Figures by <a href="https://hairline.lucasmarkes.com" target="_blank" rel="noopener">Hairline</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
