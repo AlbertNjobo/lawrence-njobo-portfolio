@@ -75,6 +75,39 @@ document.querySelectorAll(".nav__links a").forEach((a) => {
   if (a.getAttribute("href") === here) a.setAttribute("aria-current", "page");
 });
 
+// 3b. Copy the email address. Clipboard first; if the browser refuses, select the text so it can be copied by hand.
+document.querySelectorAll(".copy[data-copy]").forEach((btn) => {
+  const label = btn.querySelector(".copy__label"), status = btn.nextElementSibling;
+  const email = btn.closest(".contact-line")?.querySelector(".contact-line__email");
+  let timer;
+  btn.addEventListener("click", async () => {
+    clearTimeout(timer);
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      btn.classList.add("is-copied");
+      label.textContent = "Copied";
+      if (status) status.textContent = "Email address copied";
+      timer = setTimeout(() => { btn.classList.remove("is-copied"); label.textContent = "Copy"; if (status) status.textContent = ""; }, 2000);
+    } catch {
+      if (email) { const r = document.createRange(); r.selectNodeContents(email); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+      const key = /Mac|iPhone|iPad/.test(navigator.platform) ? "Cmd" : "Ctrl";
+      label.textContent = `Press ${key}+C`;
+      if (status) status.textContent = `Email address selected. Press ${key}+C to copy it.`;
+      timer = setTimeout(() => { label.textContent = "Copy"; if (status) status.textContent = ""; }, 4000);
+    }
+  });
+});
+
+// 3c. Links that open a new tab say so: an icon for the eye, words for screen readers.
+document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+  if (a.classList.contains("ext") || a.querySelector(".sr-only")) return;
+  if (!a.classList.contains("post")) a.classList.add("ext");
+  const note = document.createElement("span");
+  note.className = "sr-only";
+  note.textContent = " (opens in a new tab)";
+  a.append(note);
+});
+
 // 4. Medium posts (home page only). The static link in the markup is the fallback.
 const posts = document.getElementById("medium-posts");
 if (posts) {
@@ -93,7 +126,8 @@ if (posts) {
         const date = new Date(p.pubDate.replace(" ", "T")).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
         const meta = document.createElement("div"); meta.className = "post__meta"; meta.textContent = `Medium, ${date}`;
         const h = document.createElement("h3"); h.textContent = p.title;
-        a.append(meta, h);
+        const note = document.createElement("span"); note.className = "sr-only"; note.textContent = " (opens in a new tab)";
+        a.append(meta, h, note);
         return a;
       }));
     })

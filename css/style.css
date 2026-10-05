@@ -143,6 +143,27 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .link-quiet { font: 500 1rem/1 var(--sans); text-decoration: none; border-bottom: 1px solid var(--rule-strong-c); padding-bottom: 4px; white-space: nowrap; }
 .link-quiet:hover { border-color: var(--ink); }
 
+/* Contact line: the address as text, with a copy control (Phosphor icons). */
+.contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 20px 0 0; font-size: 0.9375rem; color: var(--ink-soft); max-width: none; }
+.contact-line__email { font-weight: 500; color: var(--ink); }
+.copy {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: var(--r-sm);
+  border: 1px solid var(--rule-c); background: transparent; color: var(--ink-soft); font: 500 0.875rem/1 var(--sans); cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+.copy:hover { color: var(--ink); border-color: var(--rule-strong-c); }
+.copy:active { transform: scale(0.97); }
+.copy svg { width: 16px; height: 16px; }
+.copy .icon-check, .copy.is-copied .icon-copy { display: none; }
+.copy.is-copied .icon-check { display: block; color: var(--accent); }
+@media (max-width: 520px) { .copy { min-height: 44px; } }
+
+/* Links that open a new tab carry a small arrow (Phosphor arrow-up-right), drawn as a mask in the text colour. */
+.ext::after {
+  content: ""; display: inline-block; width: 0.75em; height: 0.75em; margin-left: 0.2em; vertical-align: -0.05em;
+  background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20256%20256%22%20fill%3D%22currentColor%22%3E%3Cpath%20d%3D%22M200%2C64V168a8%2C8%2C0%2C0%2C1-16%2C0V83.31L69.66%2C197.66a8%2C8%2C0%2C0%2C1-11.32-11.32L172.69%2C72H88a8%2C8%2C0%2C0%2C1%2C0-16H192A8%2C8%2C0%2C0%2C1%2C200%2C64Z%22/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20256%20256%22%20fill%3D%22currentColor%22%3E%3Cpath%20d%3D%22M200%2C64V168a8%2C8%2C0%2C0%2C1-16%2C0V83.31L69.66%2C197.66a8%2C8%2C0%2C0%2C1-11.32-11.32L172.69%2C72H88a8%2C8%2C0%2C0%2C1%2C0-16H192A8%2C8%2C0%2C0%2C1%2C200%2C64Z%22/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 /* Hero: left copy, right figure. */
 /* Headline spans the width so it holds to two lines; copy and figure split beneath it. */
 .hero { padding-block: clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px); display: grid; gap: 32px 48px; align-items: start; }
@@ -273,6 +294,9 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .footer__sign { font: 700 var(--fs-h2)/1.12 var(--sans); letter-spacing: -0.025em; margin: 0 0 28px; max-width: 20ch; }
 .footer__row { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-bottom: 56px; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; padding: 0; margin: 0; }
+/* Footer: contact on the first row, profiles on their own row beneath. */
+.footer__row .contact-line { margin: 0; }
+.footer__row .footer__links { flex-basis: 100%; margin-top: 8px; }
 .footer__links a { font-weight: 500; text-decoration: none; color: var(--ink-soft); }
 .footer__links a:hover { color: var(--ink); }
 .footer__copy { font-size: 0.875rem; color: var(--ink-mute); margin: 0; }
