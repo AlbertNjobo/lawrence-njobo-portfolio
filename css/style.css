@@ -96,7 +96,7 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .lead { font-size: var(--fs-lead); color: var(--ink-soft); }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 0.5em; margin: 0 0 16px;
-  font: 500 0.75rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute);
+  font: 500 0.75rem/1.5 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute);
 }
 .mark { color: var(--accent); }
 
