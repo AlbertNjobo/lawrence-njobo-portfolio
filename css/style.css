@@ -333,8 +333,8 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .footer__links { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; padding: 0; margin: 0; }
 /* Footer: contact on the first row, profiles on their own row beneath. */
 .footer__row .contact-line { margin: 0; }
-.footer__row .footer__links { flex-basis: 100%; margin-top: 8px; }
-.footer__links a { font-weight: 500; text-decoration: none; color: var(--ink-soft); }
+.footer__row .footer__links { flex-basis: 100%; margin-top: 4px; gap: 8px 20px; }
+.footer__links a { font-weight: 500; font-size: 0.9375rem; text-decoration: none; color: var(--ink-mute); }
 .footer__links a:hover { color: var(--ink); }
 .footer__copy { font-size: 0.875rem; color: var(--ink-mute); margin: 0; }
 
