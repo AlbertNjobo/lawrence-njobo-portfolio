@@ -141,6 +141,11 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .btn:active { transform: scale(0.98); }
 .link-quiet { font: 500 1rem/1 var(--sans); text-decoration: none; border-bottom: 1px solid var(--rule-strong-c); padding-bottom: 4px; white-space: nowrap; }
 .link-quiet:hover { border-color: var(--ink); }
+/* Small text links keep their look but get a 44px tap target from an invisible layer centred on them. */
+.link-quiet, .footer__links a, .also a, .cred__verify { position: relative; }
+.link-quiet::before, .footer__links a::before, .also a::before, .cred__verify::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: max(100% + 8px, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+}
 
 /* Contact line: the address as text, with a copy control (Phosphor icons). */
 .contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 20px 0 0; font-size: 0.9375rem; color: var(--ink-soft); max-width: none; }
@@ -266,7 +271,7 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .also { margin-top: 40px; display: grid; gap: 20px 32px; grid-template-columns: 1fr; }
 @media (min-width: 900px) { .also { grid-template-columns: 160px 1fr; } }
 .also__label { font: 500 0.9375rem/1.4 var(--sans); color: var(--ink-mute); }
-.also ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.also ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px 28px; }
 .also a { font-weight: 500; }
 .also span { color: var(--ink-mute); font-size: 0.9375rem; }
 
