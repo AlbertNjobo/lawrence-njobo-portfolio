@@ -306,6 +306,15 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .cred__date { font: 500 0.75rem/1.6 var(--mono); color: var(--ink-mute); margin-top: 6px; }
 .cred__verify { font: 500 0.875rem/1.4 var(--sans); color: var(--accent); text-decoration: none; margin-top: 4px; }
 .cred__verify:hover { text-decoration: underline; }
+.cred__links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+/* Phones: the home grid becomes a compact two-column list. */
+@media (max-width: 599px) {
+  #credentials .creds { grid-template-columns: 1fr 1fr; gap: 8px; }
+  #credentials .cred { padding: 14px; gap: 2px; }
+  #credentials .cred__name { font-size: 0.9375rem; }
+  #credentials .cred__issuer { font-size: 0.8125rem; }
+  #credentials .cred__date { margin-top: 2px; }
+}
 .creds__group { margin: 56px 0 20px; }
 @media (min-width: 900px) { .creds--3 { grid-template-columns: repeat(3, 1fr); } }
 

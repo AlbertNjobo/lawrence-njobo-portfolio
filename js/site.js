@@ -129,7 +129,7 @@ document.querySelectorAll(".copy[data-copy]").forEach((btn) => {
 
 // 3c. Links that open a new tab say so: an icon for the eye, words for screen readers.
 document.querySelectorAll('a[target="_blank"]').forEach((a) => {
-  if (a.classList.contains("ext") || a.querySelector(".sr-only")) return;
+  if (a.classList.contains("ext") || /new tab/.test(a.textContent)) return;
   if (!a.classList.contains("post")) a.classList.add("ext");
   const note = document.createElement("span");
   note.className = "sr-only";
