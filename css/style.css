@@ -309,6 +309,7 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .case-hero h1 { margin-bottom: 16px; }
 .case-media { margin: 8px 0 0; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--rule-c); background: var(--surface); }
 .case-media img { width: 100%; height: auto; }
+.case-media--inline { margin: 32px 0 8px; }
 .case-media figcaption { font-size: 0.875rem; color: var(--ink-mute); padding: 12px 16px; border-top: 1px solid var(--rule-c); }
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 24px; border-top: 1px solid var(--rule-c); border-bottom: 1px solid var(--rule-c); margin: 48px 0; padding: 4px 0; }
 .facts div { padding: 16px 0; }

@@ -21,7 +21,7 @@
   <link rel="preload" href="/assets/fonts/satoshi-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/satoshi-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>(function(){var d=document.documentElement;d.classList.add("js");try{if(localStorage.getItem("theme")==="dark")d.setAttribute("data-theme","dark")}catch(e){}})()</script>
-  <link rel="stylesheet" href="/css/style.css?v=c08bfbdbb7">
+  <link rel="stylesheet" href="/css/style.css?v=657d38d8ef">
   <script type="module" src="/js/site.js?v=92047908ad"></script>
 </head>
 <body>
@@ -48,8 +48,8 @@
     <p class="lead">An AI agent that takes a purchase request written in plain language and carries it through to a purchase order.</p>
   </section>
   <figure class="case-media reveal">
-    <img src="/assets/images/work/procurely.webp" alt="Procurely architecture: a React app and Express server on Alibaba Cloud, an agent engine calling Qwen models, a RAG pipeline with a Zvec index, and Firebase." width="1600" height="871">
-    <figcaption>System architecture, from the project repository.</figcaption>
+    <img src="/assets/images/work/procurely-dashboard.webp" alt="Procurely dashboard: a procure-to-pay journey from idea to payment, with spend, request, approval and supplier summaries." width="1858" height="784">
+    <figcaption>The dashboard, shown with demo data. From the Devpost submission.</figcaption>
   </figure>
   <dl class="facts">
     <div><dt>Role</dt><dd>Solo build: design, code, deployment</dd></div>
@@ -69,6 +69,10 @@
       <li>A retrieval knowledge base: policy documents are embedded and searched with an HNSW index, so the agent cites the rule it is applying.</li>
       <li>Email notifications through Resend, and speech-to-text input.</li>
     </ul>
+    <figure class="case-media case-media--inline">
+      <img src="/assets/images/work/procurely.webp" alt="Procurely architecture: a React app and Express server on Alibaba Cloud, an agent engine calling Qwen models, a RAG pipeline with a Zvec index, and Firebase." width="1600" height="871">
+      <figcaption>System architecture, from the project repository.</figcaption>
+    </figure>
     <h2>What happened</h2>
     <p>The first version, ProcurePilot, ran on Supabase with PostgreSQL, row level security and pgvector for policy search. I rebuilt it as Procurely on Firebase Firestore with a Zvec vector store, and it was deployed with Docker Compose on Alibaba Cloud behind Cloudflare.</p>
     <p>The hardest part was not the model. It was deciding where the checkpoints go, because an agent that asks for approval too often is just a slower form, and one that asks too rarely is a risk.</p>
