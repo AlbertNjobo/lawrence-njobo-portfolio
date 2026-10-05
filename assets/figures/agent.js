@@ -706,6 +706,19 @@ function mount({ stage, svg, read }, value) {
   }
 
   bag.add(pointer(stage, { move: (p) => setActive(hit(p)), leave: () => setActive(-1) }));
+
+  // Keyboard: the arrow keys walk the loop forward and back, Escape lets it rest.
+  if (!stage.hasAttribute("tabindex")) stage.tabIndex = 0;
+  const onKey = (e) => {
+    const fwd = e.key === "ArrowRight" || e.key === "ArrowDown", back = e.key === "ArrowLeft" || e.key === "ArrowUp";
+    if (fwd) setActive(act < 0 ? 0 : (act + 1) % 4);
+    else if (back) setActive(act < 0 ? 3 : (act + 3) % 4);
+    else if (e.key === "Escape") setActive(-1);
+    else return;
+    e.preventDefault();
+  };
+  stage.addEventListener("keydown", onKey);
+  bag.add(() => stage.removeEventListener("keydown", onKey));
   bag.add(() => svg.replaceChildren());
 
   return {
@@ -734,7 +747,7 @@ export function mount(el, options = {}) {
 
   HL.inject(document);
   setAttr("data-hairline", FIGURE.name);
-  setAttr("role", "img");
+  setAttr("role", "group");
   setAttr("aria-label", options.label || FIGURE.means);
   const svg = HL.mk("svg", { viewBox: "0 0 400 320", "aria-hidden": "true" }, el);
 

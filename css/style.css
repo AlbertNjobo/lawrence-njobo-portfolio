@@ -191,13 +191,23 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 /* Static fallbacks are drawn in the light palette; invert them for dark. */
 [data-theme="dark"] .fig__fallback { filter: invert(1) hue-rotate(180deg); }
 .fig--emblem { max-width: 176px; margin-left: auto; }
-.fig--hero { max-width: 440px; justify-self: end; margin-top: -24px; }
+.fig--hero { max-width: 400px; justify-self: end; margin-left: auto; }
 .fig--case { max-width: 520px; margin: 0 auto; }
 .fig__read { font: 500 0.75rem/1.4 var(--mono); color: var(--ink-mute); text-align: center; min-height: 1.4em; margin: 8px 0 0; max-width: none; }
 /* Hero figure caption: a plain title, with the step under the pointer appended while it is used. */
-.fig__caption { text-align: center; margin: -44px 0 0 auto; max-width: 440px; position: relative; font: 500 0.9375rem/1.4 var(--sans); color: var(--ink-soft); }
+.fig__caption { text-align: center; margin: -58px 0 0 auto; max-width: 400px; position: relative; font: 500 0.9375rem/1.4 var(--sans); color: var(--ink-soft); }
 .fig__caption .fig__read { font: inherit; color: var(--ink-mute); margin: 0; min-height: 0; }
 .fig__caption .fig__read:not(:empty)::before { content: ": "; }
+/* The loop's four steps, always visible; the one under the pointer or keys is marked. */
+.fig__steps { list-style: none; margin: 6px 0 0 auto; padding: 0; max-width: 400px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; counter-reset: step; font: 500 0.875rem/1.4 var(--sans); color: var(--ink-mute); }
+.fig__steps li { counter-increment: step; transition: color 160ms ease; }
+.fig__steps li::before { content: counter(step) " "; font: 500 0.75rem/1 var(--mono); color: var(--ink-mute); }
+.fig__steps li[aria-current="step"] { color: var(--ink); }
+/* Keyboard focus rings the whole figure block (drawing, caption, steps), not the figure's square frame. */
+.fig--hero:focus-visible { outline: none; }
+.hero__fig:has(.fig--hero:focus-visible), .fig-mobile:has(.fig--hero:focus-visible) { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: var(--r-lg); }
+.hero__fig { padding-bottom: 4px; }
+@media (max-width: 899px) { .fig__steps { margin-inline: auto; max-width: 300px; } }
 @media (max-width: 899px) { .fig--emblem { display: none; } }
 /* The work starts right after the hero. */
 #work { padding-top: clamp(24px, 3vw, 40px); }

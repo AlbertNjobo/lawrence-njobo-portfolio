@@ -46,7 +46,12 @@ async function mountFigure(slot) {
   const readout = slot.parentElement.querySelector(".fig__read");
   // The first caption is the figure at rest; only show captions while it is being used.
   let rest;
-  if (readout) opts.onRead = (t) => { rest ??= t; readout.textContent = t === rest ? "" : t; };
+  const steps = slot.parentElement.querySelectorAll(".fig__steps [data-step]");
+  if (readout) opts.onRead = (t) => {
+    rest ??= t;
+    readout.textContent = t === rest ? "" : t;
+    steps.forEach((li) => { if (li.dataset.step === t) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current"); });
+  };
   try {
     let fig;
     if (slot.dataset.figureSrc) {
