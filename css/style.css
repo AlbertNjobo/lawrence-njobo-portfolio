@@ -304,6 +304,7 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .facts div { padding: 16px 0; }
 .facts dt { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
 .facts dd { margin: 0; font-size: 0.9375rem; line-height: 1.6; }
+.facts .muted { color: var(--ink-mute); }
 .prose { max-width: var(--measure); }
 .prose h2 { font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem); margin: 56px 0 16px; }
 .prose p, .prose li { font-size: 1.0625rem; }

@@ -54,8 +54,8 @@
   <dl class="facts">
     <div><dt>Role</dt><dd>Solo build: design, code, deployment</dd></div>
     <div><dt>Stack</dt><dd>React 19, Vite, Tailwind, Express, TypeScript, Qwen, Zvec, Firestore, Docker Compose</dd></div>
-    <div><dt>Status</dt><dd>Live</dd></div>
-    <div><dt>Links</dt><dd><a href="https://procurely.dpdns.org/" target="_blank" rel="noopener">Live site</a><br><a href="https://github.com/AlbertNjobo/procurely" target="_blank" rel="noopener">Code</a></dd></div>
+    <div><dt>Status</dt><dd>Deployed; live site offline for maintenance</dd></div>
+    <div><dt>Links</dt><dd><a href="https://github.com/AlbertNjobo/procurely" target="_blank" rel="noopener">Code</a><br><span class="muted">Live demo offline for maintenance</span></dd></div>
   </dl>
   <article class="prose reveal">
     <h2>The problem</h2>
@@ -70,7 +70,7 @@
       <li>Email notifications through Resend, and speech-to-text input.</li>
     </ul>
     <h2>What happened</h2>
-    <p>The first version, ProcurePilot, ran on Supabase with PostgreSQL, row level security and pgvector for policy search. I rebuilt it as Procurely on Firebase Firestore with a Zvec vector store, and it now runs with Docker Compose on Alibaba Cloud behind Cloudflare.</p>
+    <p>The first version, ProcurePilot, ran on Supabase with PostgreSQL, row level security and pgvector for policy search. I rebuilt it as Procurely on Firebase Firestore with a Zvec vector store, and it was deployed with Docker Compose on Alibaba Cloud behind Cloudflare.</p>
     <p>The hardest part was not the model. It was deciding where the checkpoints go, because an agent that asks for approval too often is just a slower form, and one that asks too rarely is a risk.</p>
   </article>
   <nav class="pager" aria-label="More work">
