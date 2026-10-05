@@ -2,6 +2,7 @@
 // Zero-dependency checks for the static site. Exits 1 on any failure.
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 
@@ -56,8 +57,13 @@ for (const page of PAGES) {
   if (!/<title>[^<]{3,}<\/title>/.test(html)) fail(page.path, "missing <title>");
   if (!/<meta name="description" content="[^"]{20,}"/.test(html)) fail(page.path, "missing meta description");
   if (!html.includes('<html lang="en-GB">')) fail(page.path, 'html lang must be "en-GB"');
-  if (!html.includes('href="/css/style.css"')) fail(page.path, "stylesheet not linked");
-  if (!html.includes('<script type="module" src="/js/site.js">')) fail(page.path, "site.js not loaded as module");
+  if (!/href="\/css\/style\.css(\?v=[0-9a-f]+)?"/.test(html)) fail(page.path, "stylesheet not linked");
+  if (!/<script type="module" src="\/js\/site\.js(\?v=[0-9a-f]+)?">/.test(html)) fail(page.path, "site.js not loaded as module");
+  // Every versioned asset must carry the hash of its current contents (python3 scripts/stamp-assets.py).
+  for (const m of html.matchAll(/(\/(?:css\/style\.css|js\/site\.js|assets\/figures\/[\w-]+\.js))(?:\?v=([0-9a-f]+))?"/g)) {
+    const want = createHash("sha256").update(readFileSync(join(ROOT, m[1]))).digest("hex").slice(0, 10);
+    if (m[2] !== want) fail(page.path, `stale or missing version stamp on ${m[1]} (run scripts/stamp-assets.py)`);
+  }
   for (const l of NAV_LINKS) if (!html.includes(`href="${l}"`)) fail(page.path, `nav link ${l} missing`);
   if (!html.includes('class="footer"')) fail(page.path, "footer missing");
   if (!html.includes('property="og:image"') || !html.includes('rel="canonical"')) fail(page.path, "share preview or canonical tag missing");
