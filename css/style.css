@@ -82,9 +82,10 @@ a:hover { text-decoration-color: var(--accent); }
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .section { padding-block: clamp(48px, 6vw, 80px); }
 .section h2 { margin-bottom: 32px; }
-.section__head { display: grid; gap: 16px 32px; align-items: center; margin-bottom: 32px; }
+.section__head { position: relative; display: grid; gap: 16px 32px; align-items: center; margin-bottom: 32px; }
 .section__head h2 { margin: 0; }
-@media (min-width: 900px) { .section__head { grid-template-columns: 1fr 176px; } }
+/* The emblem floats beside the heading, out of flow, so it never adds height to the heading row. */
+@media (min-width: 900px) { .section__head { padding-right: 200px; } .section__head .fig--emblem { position: absolute; right: 0; bottom: -8px; width: 176px; } }
 
 
 /* Type */
@@ -176,7 +177,7 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 
 /* Hero: left copy, right figure. */
 /* Headline spans the width so it holds to two lines; copy and figure split beneath it. */
-.hero { padding-block: clamp(48px, 6vw, 80px) clamp(8px, 1.5vw, 24px); display: grid; gap: 32px 48px; align-items: start; }
+.hero { padding-block: clamp(32px, 4vw, 56px) clamp(8px, 1.5vw, 24px); display: grid; gap: 32px 48px; align-items: start; }
 @media (min-width: 900px) { .hero { grid-template-columns: 1.2fr 1fr; } }
 .hero__head { grid-column: 1 / -1; }
 .hero h1 { max-width: 44ch; }
@@ -198,6 +199,15 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .fig__caption .fig__read { font: inherit; color: var(--ink-mute); margin: 0; min-height: 0; }
 .fig__caption .fig__read:not(:empty)::before { content: ": "; }
 @media (max-width: 899px) { .fig--emblem { display: none; } }
+/* The work starts right after the hero. */
+#work { padding-top: clamp(24px, 3vw, 40px); }
+/* Phones: the agent loop moves from the hero to just after the work grid, so the first project shows on the first screen.
+   Two copies in the markup (one hidden per breakpoint) avoid any layout shift; a hidden copy never mounts its figure. */
+.fig-mobile { display: none; }
+@media (max-width: 599px) {
+  .hero__fig { display: none; }
+  .fig-mobile { display: block; margin-top: 40px; }
+}
 /* Phones: the hero figure sits under the buttons at about half height, so the work starts sooner. */
 @media (max-width: 899px) { .fig--hero { max-width: 300px; margin-top: 0; justify-self: center; } .fig__caption { margin: -28px auto 0; max-width: 300px; } }
 
