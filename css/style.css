@@ -100,9 +100,10 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 }
 .mark { color: var(--accent); }
 
-/* Reveal on scroll: hierarchy cue, sections arrive as they are reached. */
-.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1); }
-.js .reveal.is-in { opacity: 1; transform: none; }
+/* Reveal on scroll: hierarchy cue, sections arrive as they are reached. Only armed once site.js is running
+   (it adds .reveal-on), so a script that fails to load can never leave content invisible. */
+.reveal-on .reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-on .reveal.is-in { opacity: 1; transform: none; }
 
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule-c); }
@@ -145,7 +146,10 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 
 /* Contact line: the address as text, with a copy control (Phosphor icons). */
 .contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 20px 0 0; font-size: 0.9375rem; color: var(--ink-soft); max-width: none; }
-.contact-line__email { font-weight: 500; color: var(--ink); }
+.contact-line__email { font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
+/* Controls that need site.js stay hidden until it runs (space kept, so nothing shifts), and out of the page without JavaScript. */
+html:not(.site-ready) .copy, html:not(.site-ready) .theme-toggle { visibility: hidden; }
+html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .copy {
   display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: var(--r-sm);
   border: 1px solid var(--rule-c); background: transparent; color: var(--ink-soft); font: 500 0.875rem/1 var(--sans); cursor: pointer;
@@ -236,6 +240,7 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .post { display: block; padding: 24px; border: 1px solid var(--rule-c); border-radius: var(--r-lg); text-decoration: none; transition: border-color 200ms ease; }
 .post:hover { border-color: var(--rule-strong-c); }
 .post__meta { font: 500 0.75rem/1 var(--mono); color: var(--ink-mute); margin-bottom: 12px; }
+.post h3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 
 /* Experience: dated timeline, spacing separates entries. */
 .timeline { list-style: none; margin: 0; padding: 32px 0 0; border-top: 1px solid var(--rule-c); display: grid; gap: 36px; }
@@ -303,7 +308,7 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal-on .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .work__item, .work__media img, .post { transition: none; }
   .btn:active, .work__item:active { transform: none; }
 }

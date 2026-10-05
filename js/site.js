@@ -23,10 +23,13 @@ const reveals = document.querySelectorAll(".reveal");
 if (reduced || !("IntersectionObserver" in window)) {
   reveals.forEach((el) => el.classList.add("is-in"));
 } else {
+  // Anything already on screen shows at once; only what is below the fold waits to fade in.
+  reveals.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("is-in"); });
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
   }, { rootMargin: "0px 0px -8% 0px" });
-  reveals.forEach((el) => io.observe(el));
+  reveals.forEach((el) => { if (!el.classList.contains("is-in")) io.observe(el); });
+  document.documentElement.classList.add("reveal-on");
 }
 
 // Never print or save a page with sections still waiting to fade in.
@@ -112,7 +115,11 @@ document.querySelectorAll('a[target="_blank"]').forEach((a) => {
 const posts = document.getElementById("medium-posts");
 if (posts) {
   const RSS = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@lawrencenjobo";
-  fetch(RSS)
+  // Give the feed six seconds; on any failure the static link to Medium stays.
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 6000);
+  fetch(RSS, { signal: ctrl.signal })
+    .finally(() => clearTimeout(timer))
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error("RSS failed"))))
     .then((data) => {
       const items = (data.items || []).slice(0, 3);
@@ -125,7 +132,7 @@ if (posts) {
         a.rel = "noopener";
         const date = new Date(p.pubDate.replace(" ", "T")).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
         const meta = document.createElement("div"); meta.className = "post__meta"; meta.textContent = `Medium, ${date}`;
-        const h = document.createElement("h3"); h.textContent = p.title;
+        const h = document.createElement("h3"); h.textContent = p.title; a.title = p.title;
         const note = document.createElement("span"); note.className = "sr-only"; note.textContent = " (opens in a new tab)";
         a.append(meta, h, note);
         return a;
@@ -133,3 +140,6 @@ if (posts) {
     })
     .catch(() => {});
 }
+
+// Everything above ran: show the controls that depend on it.
+document.documentElement.classList.add("site-ready");
