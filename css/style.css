@@ -219,7 +219,7 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
   .fig-mobile { display: block; margin-top: 40px; }
 }
 /* Phones: the hero figure sits under the buttons at about half height, so the work starts sooner. */
-@media (max-width: 899px) { .fig--hero { max-width: 300px; margin-top: 0; justify-self: center; } .fig__caption { margin: -28px auto 0; max-width: 300px; } }
+@media (max-width: 899px) { .fig--hero { max-width: 300px; margin-top: 0; margin-inline: auto; justify-self: center; } .fig__caption { margin: -28px auto 0; max-width: 300px; } }
 
 /* Work: asymmetric bento, one cell per case study. */
 .work { display: grid; gap: 16px; grid-template-columns: 1fr; }
