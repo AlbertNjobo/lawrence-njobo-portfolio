@@ -64,10 +64,31 @@ async function mountFigure(slot) {
       fig = make(slot, opts);
     }
     slot.classList.add("is-live");
+    if (slot.hasAttribute("data-autoplay")) playOnce(slot);
     return fig;
   } catch (err) {
     console.warn("Figure fell back to static image:", err);
   }
+}
+// Walks the loop once (Plan, Use a tool, Check, Answer) the first time the figure is in view, by pressing the
+// figure's own arrow key. Stops for good as soon as the visitor points at, touches or focuses the figure.
+function playOnce(slot) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let timer, stopped = false;
+  const stop = () => { stopped = true; clearTimeout(timer); };
+  ["pointerenter", "pointerdown", "focusin"].forEach((t) => slot.addEventListener(t, stop, { once: true }));
+  slot.addEventListener("keydown", (e) => { if (e.isTrusted) stop(); });
+  const step = (n) => {
+    if (stopped || n === 4) return;
+    slot.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight" }));
+    timer = setTimeout(() => step(n + 1), 1200);
+  };
+  const seen = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    seen.disconnect();
+    timer = setTimeout(() => step(0), 600);
+  }, { threshold: 0.6 });
+  seen.observe(slot);
 }
 const slots = document.querySelectorAll("figure[data-figure]");
 if (slots.length) {

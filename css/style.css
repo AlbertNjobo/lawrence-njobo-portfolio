@@ -202,11 +202,18 @@ html:not(.js) .copy, html:not(.js) .theme-toggle { display: none; }
 .fig__steps { list-style: none; margin: 6px 0 0 auto; padding: 0; max-width: 400px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; counter-reset: step; font: 500 0.875rem/1.4 var(--sans); color: var(--ink-mute); }
 .fig__steps li { counter-increment: step; transition: color 160ms ease; }
 .fig__steps li::before { content: counter(step) " "; font: 500 0.75rem/1 var(--mono); color: var(--ink-mute); }
-.fig__steps li[aria-current="step"] { color: var(--ink); }
+.fig__steps { position: relative; } /* above the figure's frame, which otherwise takes the pointer over the legend */
+/* The current step: cobalt, and bolder by a stroke so the row does not reflow. */
+.fig__steps li[aria-current="step"] { color: var(--accent); -webkit-text-stroke: 0.35px currentColor; }
+.fig__steps li[aria-current="step"]::before { color: var(--accent); }
+.fig--hero .dot.m { fill: var(--accent); }
 /* Keyboard focus rings the whole figure block (drawing, caption, steps), not the figure's square frame. */
 .fig--hero:focus-visible { outline: none; }
 .hero__fig:has(.fig--hero:focus-visible), .fig-mobile:has(.fig--hero:focus-visible) { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: var(--r-lg); }
 .hero__fig { padding-bottom: 4px; }
+/* Desktop: the board's drawing starts 108px into its 400px-wide frame; lift the frame so the board lines up with the lead.
+   The headline stays above the frame's empty top so its text remains selectable. */
+@media (min-width: 900px) { .hero__fig { margin-top: -108px; } .hero__head { position: relative; z-index: 1; } }
 @media (max-width: 899px) { .fig__steps { margin-inline: auto; max-width: 300px; } }
 @media (max-width: 899px) { .fig--emblem { display: none; } }
 /* The work starts right after the hero. */
