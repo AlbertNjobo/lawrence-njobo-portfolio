@@ -60,6 +60,7 @@ for (const page of PAGES) {
   if (!html.includes('<script type="module" src="/js/site.js">')) fail(page.path, "site.js not loaded as module");
   for (const l of NAV_LINKS) if (!html.includes(`href="${l}"`)) fail(page.path, `nav link ${l} missing`);
   if (!html.includes('class="footer"')) fail(page.path, "footer missing");
+  if (!html.includes('property="og:image"') || !html.includes('rel="canonical"')) fail(page.path, "share preview or canonical tag missing");
   if (!html.includes('class="theme-toggle"')) fail(page.path, "theme toggle missing");
   if (!html.includes('localStorage.getItem("theme")')) fail(page.path, "pre-paint theme script missing");
   if (text.includes("—")) fail(page.path, "em dash in visible text");
