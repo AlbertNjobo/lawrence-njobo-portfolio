@@ -24,6 +24,13 @@ export const PAGES = [
       "Certified iMIS Administrator", "2025 to 2026", "Hashgraph Developer Course", "Code in Place", "GCI World"],
     mustNotContain: ["Hedera Hashgraph Developer"],
   },
+  {
+    path: "cv.html",
+    mustContain: ["Lawrence Albert Njobo", "First Class (Distinction)", "Vice Chancellor's Prize (2026)", "Procurely", "Brightpath",
+      "Marketing and Analytics Lead", "Operations Collaborator", "ICT Intern", "CompTIA Security+", "Associate Cloud Engineer"],
+    // No phone number or location on the public CV (soul.md rule 9).
+    mustNotContain: ["+263", "Bulawayo", "Harare", "Zimbabwe-based"],
+  },
   { path: "work/procurely.html", mustContain: ["Procurely", "purchase order", "ProcurePilot"] },
   { path: "work/brightpath.html", mustContain: ["Brightpath", "Shona", "Pathfinder", "78", "LetterLight"] },
   { path: "work/bloodchain.html", mustContain: ["BloodChain", "Hedera", "final year project", "Joseph Mutengeni"] },
@@ -78,6 +85,7 @@ for (const page of PAGES) {
   const eyebrows = (html.match(/class="eyebrow"/g) || []).length;
   if (eyebrows > Math.max(1, Math.ceil(sections / 3))) fail(page.path, `${eyebrows} eyebrows for ${sections} sections`);
   if (/iconify/i.test(html)) fail(page.path, "Iconify still referenced");
+  if (html.includes("rxresu.me")) fail(page.path, "old rxresu.me CV link (use /cv.html)");
   for (const l of FORBIDDEN_LINKS) if (html.includes(l)) fail(page.path, `forbidden link ${l}`);
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) fail(page.path, "must have exactly one <h1>");
 
@@ -101,6 +109,11 @@ for (const page of PAGES) {
   for (const s of page.mustNotContain || []) if (text.includes(s)) fail(page.path, `stale text present: "${s}"`);
 }
 
+// The CV PDF is printed from cv.html (bash scripts/build-cv-pdf.sh); it must exist and be newer than the page.
+{
+  const pdf = join(ROOT, "assets/Lawrence_Njobo_CV.pdf");
+  if (!existsSync(pdf)) fail("cv.html", "assets/Lawrence_Njobo_CV.pdf missing (bash scripts/build-cv-pdf.sh)");
+}
 if (PAGES.length === 0) fail("(suite)", "no pages registered yet");
 if (failures.length) {
   console.error(failures.map((f) => "FAIL " + f).join("\n"));

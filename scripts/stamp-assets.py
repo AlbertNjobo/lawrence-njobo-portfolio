@@ -8,7 +8,7 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = [ROOT / "index.html", ROOT / "credentials.html", *sorted((ROOT / "work").glob("*.html"))]
+PAGES = [ROOT / "index.html", ROOT / "credentials.html", ROOT / "cv.html", *sorted((ROOT / "work").glob("*.html"))]
 ASSET = re.compile(r'(?P<path>/(?:css/style\.css|js/site\.js|assets/figures/[\w-]+\.js))(?:\?v=[0-9a-f]+)?(?=")')
 
 
