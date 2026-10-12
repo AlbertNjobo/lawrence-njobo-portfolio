@@ -9,7 +9,7 @@ const toggle = document.querySelector(".theme-toggle");
 function applyTheme(dark) {
   if (dark) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
   if (toggle) toggle.setAttribute("aria-pressed", String(dark));
-  if (themeMeta) themeMeta.content = dark ? "#0f1012" : "#f5f5f3";
+  if (themeMeta) themeMeta.content = dark ? "#16181b" : "#ffffff";
 }
 applyTheme(root.getAttribute("data-theme") === "dark");
 toggle?.addEventListener("click", () => {
@@ -18,7 +18,16 @@ toggle?.addEventListener("click", () => {
   try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
 });
 
-// 1. Sections fade up as they are reached.
+// 1. Things arrive as they are reached. Children of a [data-stagger] group cascade, at most six steps deep;
+// data-stagger="clip" unrolls them from the bottom edge instead of rising.
+document.querySelectorAll("[data-stagger]").forEach((group) => {
+  [...group.children].forEach((child, i) => {
+    child.classList.add("reveal");
+    if (group.dataset.stagger === "clip") child.classList.add("reveal--clip");
+    child.style.setProperty("--i", Math.min(i, 6));
+  });
+});
+document.querySelectorAll(".footer__mark").forEach((m) => m.classList.add("reveal"));
 const reveals = document.querySelectorAll(".reveal");
 if (reduced || !("IntersectionObserver" in window)) {
   reveals.forEach((el) => el.classList.add("is-in"));
@@ -96,6 +105,23 @@ if (slots.length) {
     for (const e of entries) if (e.isIntersecting) { mountFigure(e.target); io.unobserve(e.target); }
   }, { rootMargin: "200px" });
   slots.forEach((s) => io.observe(s));
+}
+
+// 2b. On a mouse, a "View case study" label follows the pointer across each project image.
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  document.querySelectorAll(".work__media").forEach((media) => {
+    const label = media.querySelector(".work__cursor");
+    if (!label) return;
+    let frame;
+    media.addEventListener("pointermove", (e) => {
+      const box = media.getBoundingClientRect();
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        label.style.setProperty("--x", `${e.clientX - box.left}px`);
+        label.style.setProperty("--y", `${e.clientY - box.top}px`);
+      });
+    });
+  });
 }
 
 // 3. Active nav item.

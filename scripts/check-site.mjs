@@ -52,6 +52,7 @@ function visibleText(html) {
     .replace(/<script[\s\S]*?<\/script>/g, "")
     .replace(/<style[\s\S]*?<\/style>/g, "")
     .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<\/?span[^>]*>/g, "")
     .replace(/<[^>]+>/g, " ");
 }
 
