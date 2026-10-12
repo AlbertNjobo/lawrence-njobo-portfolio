@@ -41,3 +41,4 @@ The discipline tags are cyan `#30e0ff`, yellow `#f9ff44` and amber `#ffce47`. Li
 - `.btn` is ink with a white label and an 8px radius. `.btn--lime` is used in the footer only.
 - `.link-quiet` is an underlined text link with a 44px tap target. External links get an arrow from `.ext`, added by `js/site.js`.
 - Project screenshots sit at 84% width inside a tinted 4:3 stage, with a soft shadow.
+- Case-study facts: stack items are chips with brand logos from `assets/icons.svg` (an SVG sprite; logos take their brand colour through `--brand`, or stay ink where the brand is black). Status is a dot: lime and pulsing while in development, amber when offline, ink when complete. Links are `.link-chip` buttons (GitHub icon for Code, a globe for Live demo); a `.link-note` marks links that cannot be followed.
