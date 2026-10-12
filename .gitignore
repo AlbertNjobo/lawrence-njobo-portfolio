@@ -5,3 +5,4 @@ node_modules
 .playwright-mcp/
 docs/
 scripts/forbidden-links.txt
+plans/
