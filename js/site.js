@@ -1,5 +1,4 @@
 // Shared behaviour for every page. Loaded as <script type="module" src="/js/site.js">.
-const HAIRLINE = "https://esm.sh/@lucasmarkes/hairline@0.2.0";
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // 0. Theme: light by default; the nav toggle switches to dark and remembers it.
@@ -14,8 +13,18 @@ function applyTheme(dark) {
 applyTheme(root.getAttribute("data-theme") === "dark");
 toggle?.addEventListener("click", () => {
   const dark = root.getAttribute("data-theme") !== "dark";
-  applyTheme(dark);
   try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
+  if (!document.startViewTransition || matchMedia("(prefers-reduced-motion: reduce)").matches) { applyTheme(dark); return; }
+  const box = toggle.getBoundingClientRect();
+  const x = box.left + box.width / 2, y = box.top + box.height / 2;
+  const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  root.classList.add("theme-switching");
+  const t = document.startViewTransition(() => applyTheme(dark));
+  t.ready.then(() => root.animate(
+    { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
+    { duration: 400, easing: "cubic-bezier(0.16, 1, 0.3, 1)", pseudoElement: "::view-transition-new(root)" }
+  ));
+  t.finished.finally(() => root.classList.remove("theme-switching"));
 });
 
 // 1. Things arrive as they are reached. Children of a [data-stagger] group cascade, at most six steps deep;
@@ -43,69 +52,14 @@ if (reduced || !("IntersectionObserver" in window)) {
 
 // Never print or save a page with sections still waiting to fade in.
 addEventListener("beforeprint", () => reveals.forEach((el) => el.classList.add("is-in")));
-
-// 2. Figures. Stock: data-figure="terminal". Custom: data-figure-src="/assets/figures/x.js".
-// The fallback <img> stays visible unless the live figure mounts.
-async function mountFigure(slot) {
-  const opts = {
-    intensity: Number(slot.dataset.intensity || 0.4),
-    theme: "auto", // follows data-theme on <html>
-    label: slot.dataset.label,
-  };
-  const readout = slot.parentElement.querySelector(".fig__read");
-  // The first caption is the figure at rest; only show captions while it is being used.
-  let rest;
-  const steps = slot.parentElement.querySelectorAll(".fig__steps [data-step]");
-  if (readout) opts.onRead = (t) => {
-    rest ??= t;
-    readout.textContent = t === rest ? "" : t;
-    steps.forEach((li) => { if (li.dataset.step === t) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current"); });
-  };
-  try {
-    let fig;
-    if (slot.dataset.figureSrc) {
-      const mod = await import(slot.dataset.figureSrc);
-      fig = mod.mount(slot, opts);
-    } else {
-      const lib = await import(HAIRLINE);
-      const make = lib[slot.dataset.figure];
-      if (typeof make !== "function") throw new Error(`unknown figure ${slot.dataset.figure}`);
-      fig = make(slot, opts);
-    }
-    slot.classList.add("is-live");
-    if (slot.hasAttribute("data-autoplay")) playOnce(slot);
-    return fig;
-  } catch (err) {
-    console.warn("Figure fell back to static image:", err);
-  }
-}
-// Walks the loop once (Plan, Use a tool, Check, Answer) the first time the figure is in view, by pressing the
-// figure's own arrow key. Stops for good as soon as the visitor points at, touches or focuses the figure.
-function playOnce(slot) {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let timer, stopped = false;
-  const stop = () => { stopped = true; clearTimeout(timer); };
-  ["pointerenter", "pointerdown", "focusin"].forEach((t) => slot.addEventListener(t, stop, { once: true }));
-  slot.addEventListener("keydown", (e) => { if (e.isTrusted) stop(); });
-  const step = (n) => {
-    if (stopped || n === 4) return;
-    slot.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight" }));
-    timer = setTimeout(() => step(n + 1), 1200);
-  };
-  const seen = new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) return;
-    seen.disconnect();
-    timer = setTimeout(() => step(0), 600);
-  }, { threshold: 0.6 });
-  seen.observe(slot);
-}
-const slots = document.querySelectorAll("figure[data-figure]");
-if (slots.length) {
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) if (e.isIntersecting) { mountFigure(e.target); io.unobserve(e.target); }
-  }, { rootMargin: "200px" });
-  slots.forEach((s) => io.observe(s));
-}
+// Arriving through a view transition: show the project tiles at once, so a screenshot morphs into a visible tile.
+addEventListener("pagereveal", (e) => {
+  if (!e.viewTransition) return;
+  document.querySelectorAll(".reveal--clip").forEach((el) => {
+    el.querySelector(".work__media")?.style.setProperty("transition", "none");
+    el.classList.add("is-in");
+  });
+});
 
 // 2b. On a mouse, a "View case study" label follows the pointer across each project image.
 if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
